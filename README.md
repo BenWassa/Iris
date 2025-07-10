@@ -1,4 +1,4 @@
-# 🌈 Project Iris
+# Project Iris
 
 **A poetic, science-informed tool to *see* your mind’s chemistry.**
 

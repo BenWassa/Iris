@@ -201,67 +201,15 @@ if __name__ == '__main__':
     print("🎭 Project Iris - Enhanced Visualization Integration Test")
     print("=" * 65)
     print()
-    
     # Test API integration with enhanced visualization
     test_enhanced_visualization_integration()
     print()
-    
     # Test performance
     test_visualization_performance()
     print()
-    
     # Test frontend features
     test_frontend_integration()
     print()
-    
     print("🎯 Integration testing complete!")
     print("💡 Start the API server with: python api.py")
     print("🌐 Open docs/index.html to see the enhanced visualization in action!")
-            'data': {'dopamine': 30, 'serotonin': 30, 'oxytocin': 20, 'cortisol': 30, 'norepinephrine': 30}
-        }
-    ]
-    
-    for case in test_cases:
-        try:
-            response = requests.post(API_URL, json=case['data'], timeout=5)
-            if response.status_code == 200:
-                result = response.json()
-                print(f"{case['name']:20} -> {result['emotion']:12} (conf: {result['confidence']:.3f})")
-                print(f"{'':20}    {result['description'][:60]}...")
-            else:
-                print(f"{case['name']:20} -> ERROR: {response.status_code}")
-        except requests.exceptions.RequestException as e:
-            print(f"{case['name']:20} -> CONNECTION ERROR: {e}")
-        print()
-
-def test_emotion_coordinates():
-    """Display the emotion coordinates for visualization"""
-    print("\n🎯 Emotion Visualization Coordinates")
-    print("=" * 50)
-    
-    coords = {
-        'happiness': {'valence': 0.9, 'arousal': 0.85},
-        'anger': {'valence': 0.2, 'arousal': 0.9},
-        'sadness': {'valence': 0.25, 'arousal': 0.3},
-        'fear': {'valence': 0.15, 'arousal': 0.8},
-        'disgust': {'valence': 0.2, 'arousal': 0.45}
-    }
-    
-    for emotion, coord in coords.items():
-        quadrant = get_quadrant(coord['valence'], coord['arousal'])
-        print(f"{emotion:12} -> Valence: {coord['valence']:.2f}, Arousal: {coord['arousal']:.2f} ({quadrant})")
-
-def get_quadrant(valence, arousal):
-    """Determine which quadrant an emotion falls into"""
-    if valence > 0.5 and arousal > 0.5:
-        return "Excitement"
-    elif valence < 0.5 and arousal > 0.5:
-        return "Stress"
-    elif valence < 0.5 and arousal < 0.5:
-        return "Depression"
-    else:
-        return "Contentment"
-
-if __name__ == '__main__':
-    test_emotion_inference()
-    test_emotion_coordinates()

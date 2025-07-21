@@ -1,101 +1,101 @@
 emotion,emotion_category,dopamine,serotonin,oxytocin,cortisol,norepinephrine,primary_synonym,secondary_synonym,description
-awe,Positive,26.61,15.61,10.34,2.24,45.20,fear,reverence,"Awe is a profound emotional state, often shaping our perceptions and interactions."
-schadenfreude,Negative,15.04,19.64,5.07,57.16,3.09,gloating,malicious joy,Experiencing Schadenfreude involves a complex interplay of feelings and physiological responses.
-liminality,Neutral,3.96,2.36,55.77,24.37,13.54,in-betweenness,threshold state,The emotion of Liminality can significantly influence an individual's thoughts and behaviors.
-serenity,Positive,20.23,23.33,1.56,40.10,14.78,repose,quiet,"Serenity manifests uniquely in different individuals, affecting their outlook and relationships."
-melancholy,Negative,1.36,33.92,2.06,36.72,25.94,black bile,melancholic,Understanding Melancholy offers insight into the human emotional landscape and personal growth.
-euphoria,Positive,42.21,24.20,7.31,4.02,22.25,euphory,ecstasy,"Euphoria is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-nostalgia,Other,12.17,4.66,33.78,36.58,12.81,homesickness,reminiscence,Delving into Nostalgia reveals its multifaceted nature and impact on daily life.
-frustration,Negative,21.96,2.63,30.06,22.59,22.75,defeat,thwarting,"Frustration is a profound emotional state, often shaping our perceptions and interactions."
-anticipation,Neutral,19.87,35.62,0.50,41.93,2.08,expectancy,prediction,Experiencing Anticipation involves a complex interplay of feelings and physiological responses.
-perplexity,Negative,13.26,0.15,12.46,56.31,17.82,confusion,bewilderment,The emotion of Perplexity can significantly influence an individual's thoughts and behaviors.
-jealousy,Negative,14.28,13.20,12.34,20.88,39.31,green-eyed monster,envy,"Jealousy manifests uniquely in different individuals, affecting their outlook and relationships."
-compassion,Positive,43.31,9.20,7.60,37.81,2.09,compassionateness,pity,Understanding Compassion offers insight into the human emotional landscape and personal growth.
-apprehension,Negative,12.10,33.55,6.71,22.78,24.85,apprehensiveness,dread,"Apprehension is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-apathy,Negative,11.57,14.88,30.70,14.25,28.60,indifference,numbness,Delving into Apathy reveals its multifaceted nature and impact on daily life.
-solace,Positive,11.67,1.75,7.06,14.31,65.20,consolation,solacement,"Solace is a profound emotional state, often shaping our perceptions and interactions."
-yearning,Other,14.49,16.27,10.02,12.46,46.76,longing,hungriness,Experiencing Yearning involves a complex interplay of feelings and physiological responses.
-ardor,Other,2.45,23.50,47.77,10.09,16.18,ardour,elan,The emotion of Ardor can significantly influence an individual's thoughts and behaviors.
-ennui,Negative,12.06,2.22,6.70,52.80,26.22,boredom,tedium,"Ennui manifests uniquely in different individuals, affecting their outlook and relationships."
-jubilation,Positive,25.79,17.32,15.61,4.81,36.46,exultation,jubilance,Understanding Jubilation offers insight into the human emotional landscape and personal growth.
-remorse,Negative,34.58,5.65,55.78,2.77,1.22,compunction,self-reproach,"Remorse is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-suspicion,Negative,0.10,16.66,7.11,43.60,32.54,intuition,hunch,Delving into Suspicion reveals its multifaceted nature and impact on daily life.
-gratitude,Positive,41.48,26.37,24.03,0.09,8.03,thankfulness,appreciation,"Gratitude is a profound emotional state, often shaping our perceptions and interactions."
-trepidation,Negative,3.79,20.26,48.06,27.35,0.54,dread,unease,Experiencing Trepidation involves a complex interplay of feelings and physiological responses.
-astonishment,Negative,2.47,28.56,10.88,43.61,14.48,amazement,surprise,The emotion of Astonishment can significantly influence an individual's thoughts and behaviors.
-pride,Positive,33.77,1.60,2.85,6.81,54.97,pridefulness,superbia,"Pride manifests uniquely in different individuals, affecting their outlook and relationships."
-shame,Negative,13.56,1.21,8.52,23.20,53.51,disgrace,ignominy,Understanding Shame offers insight into the human emotional landscape and personal growth.
-admiration,Positive,3.56,10.81,42.83,15.46,27.34,esteem,wonder,"Admiration is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-wonder,Positive,39.76,3.20,31.46,8.97,16.61,wonderment,admiration,Delving into Wonder reveals its multifaceted nature and impact on daily life.
-guilt,Negative,13.68,0.41,54.74,7.78,23.39,guiltiness,guilty conscience,"Guilt is a profound emotional state, often shaping our perceptions and interactions."
-confusion,Negative,12.18,6.72,32.01,24.10,25.00,mental confusion,confusedness,Experiencing Confusion involves a complex interplay of feelings and physiological responses.
-respect,Other,18.49,7.29,38.54,34.89,0.79,regard,esteem,The emotion of Respect can significantly influence an individual's thoughts and behaviors.
-relief,Positive,22.27,15.98,19.43,2.16,40.16,alleviation,assuagement,"Relief manifests uniquely in different individuals, affecting their outlook and relationships."
-love,Positive,11.54,32.59,23.91,21.43,10.53,passion,beloved,Understanding Love offers insight into the human emotional landscape and personal growth.
-hatred,Negative,2.43,23.94,26.32,39.68,7.63,hate,loathing,"Hatred is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-contempt,Negative,2.64,43.64,23.05,11.73,18.94,disdain,scorn,Delving into Contempt reveals its multifaceted nature and impact on daily life.
-trust,Positive,36.31,9.13,15.66,15.63,23.28,reliance,trustingness,"Trust is a profound emotional state, often shaping our perceptions and interactions."
-anger,Negative,41.02,8.28,34.25,0.54,15.91,choler,ire,Experiencing Anger involves a complex interplay of feelings and physiological responses.
-fear,Negative,4.88,17.59,2.19,64.11,11.23,fearfulness,fright,The emotion of Fear can significantly influence an individual's thoughts and behaviors.
-sadness,Negative,1.41,10.64,27.59,49.74,10.61,unhappiness,sorrow,"Sadness manifests uniquely in different individuals, affecting their outlook and relationships."
-happiness,Positive,14.93,38.39,0.79,21.78,24.11,felicity,joyfulness,Understanding Happiness offers insight into the human emotional landscape and personal growth.
-disgust,Negative,18.55,38.17,8.00,29.06,6.23,gross out,revolt,"Disgust is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-surprise,Positive,32.58,4.99,26.69,25.88,9.86,surprisal,storm,Delving into Surprise reveals its multifaceted nature and impact on daily life.
-hope,Positive,27.13,3.38,10.66,35.85,22.97,promise,bob hope,"Hope is a profound emotional state, often shaping our perceptions and interactions."
-despair,Negative,3.08,21.90,40.44,1.77,32.81,desperation,hopelessness,Experiencing Despair involves a complex interplay of feelings and physiological responses.
-ecstasy,Positive,54.66,1.99,3.94,19.32,20.09,rapture,transport,The emotion of Ecstasy can significantly influence an individual's thoughts and behaviors.
-anxiety,Negative,8.97,33.61,16.85,11.19,29.39,anxiousness,nervousness,"Anxiety manifests uniquely in different individuals, affecting their outlook and relationships."
-boredom,Negative,20.23,44.65,20.55,13.98,0.59,ennui,tedium,Understanding Boredom offers insight into the human emotional landscape and personal growth.
-curiosity,Positive,43.42,1.03,10.16,14.51,30.88,wonder,curio,"Curiosity is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-envy,Other,42.51,22.83,1.56,15.00,18.10,enviousness,invidia,Delving into Envy reveals its multifaceted nature and impact on daily life.
-acceptance,Positive,4.29,46.70,37.49,8.44,3.09,credence,adoption,"Acceptance is a profound emotional state, often shaping our perceptions and interactions."
-defeat,Negative,47.66,21.91,0.92,10.85,18.65,licking,frustration,Experiencing Defeat involves a complex interplay of feelings and physiological responses.
-determination,Positive,18.40,40.04,9.92,22.75,8.89,finding,purpose,The emotion of Determination can significantly influence an individual's thoughts and behaviors.
-embarrassment,Negative,36.49,4.26,6.43,24.43,28.39,overplus,plethora,"Embarrassment manifests uniquely in different individuals, affecting their outlook and relationships."
-humility,Positive,1.80,23.82,52.98,16.12,5.28,humbleness,modesty,Understanding Humility offers insight into the human emotional landscape and personal growth.
-indignation,Negative,23.77,20.80,17.76,11.96,25.71,outrage,resentment,"Indignation is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-inspiration,Positive,18.66,7.43,41.40,26.04,6.48,brainchild,divine guidance,Delving into Inspiration reveals its multifaceted nature and impact on daily life.
-joy,Positive,3.86,33.01,25.45,16.47,21.21,joyousness,joyfulness,"Joy is a profound emotional state, often shaping our perceptions and interactions."
-loneliness,Negative,3.63,23.68,24.45,12.34,35.91,solitariness,forlornness,Experiencing Loneliness involves a complex interplay of feelings and physiological responses.
-obsession,Negative,29.31,17.67,5.36,25.82,21.84,compulsion,fixation,The emotion of Obsession can significantly influence an individual's thoughts and behaviors.
-optimism,Positive,28.97,9.32,7.81,37.89,16.00,hopefulness,positivity,"Optimism manifests uniquely in different individuals, affecting their outlook and relationships."
-pessimism,Negative,9.00,40.17,1.02,13.26,36.55,negativity,fatalism,Understanding Pessimism offers insight into the human emotional landscape and personal growth.
-regret,Negative,10.87,11.62,26.22,31.46,19.82,sorrow,rue,"Regret is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-resilience,Positive,13.46,37.59,2.89,38.33,7.73,resiliency,toughness,Delving into Resilience reveals its multifaceted nature and impact on daily life.
-satisfaction,Positive,51.40,10.41,14.85,11.53,11.81,gratification,atonement,"Satisfaction is a profound emotional state, often shaping our perceptions and interactions."
-synergy,Positive,20.66,19.11,32.74,5.80,21.68,synergism,cooperation,Experiencing Synergy involves a complex interplay of feelings and physiological responses.
-tranquility,Positive,48.03,7.22,7.87,10.79,26.09,repose,quiet,The emotion of Tranquility can significantly influence an individual's thoughts and behaviors.
-vulnerability,Negative,9.58,71.03,8.16,5.04,6.19,exposure,susceptibility,"Vulnerability manifests uniquely in different individuals, affecting their outlook and relationships."
-warmth,Positive,1.19,78.01,2.23,5.14,13.43,heat,warmheartedness,Understanding Warmth offers insight into the human emotional landscape and personal growth.
-zeal,Positive,20.85,15.73,1.07,20.96,41.39,ardor,ardour,"Zeal is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-agitation,Negative,42.90,12.23,22.26,15.42,7.19,ferment,fermentation,Delving into Agitation reveals its multifaceted nature and impact on daily life.
-bewilderment,Negative,24.21,2.10,31.16,19.95,22.58,obfuscation,puzzlement,"Bewilderment is a profound emotional state, often shaping our perceptions and interactions."
-calmness,Positive,30.85,17.81,1.84,20.22,29.28,composure,calm,Experiencing Calmness involves a complex interplay of feelings and physiological responses.
-discouragement,Negative,5.83,34.93,4.45,27.79,27.00,disheartenment,dismay,The emotion of Discouragement can significantly influence an individual's thoughts and behaviors.
-empathy,Positive,31.56,5.84,7.81,2.63,52.15,understanding,compassion,"Empathy manifests uniquely in different individuals, affecting their outlook and relationships."
-fascination,Negative,18.15,0.26,4.61,47.44,29.53,captivation,enchantment,Understanding Fascination offers insight into the human emotional landscape and personal growth.
-glee,Positive,5.47,38.82,28.59,12.02,15.10,hilarity,mirth,"Glee is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-heartbreak,Negative,33.15,35.42,4.82,21.74,4.86,grief,heartache,Delving into Heartbreak reveals its multifaceted nature and impact on daily life.
-kinship,Neutral,0.91,6.53,13.48,78.29,0.78,affinity,family relationship,"Kinship is a profound emotional state, often shaping our perceptions and interactions."
-longing,Negative,2.90,31.68,13.21,40.34,11.87,yearning,hungriness,Experiencing Longing involves a complex interplay of feelings and physiological responses.
-mischief,Negative,24.08,15.09,12.01,5.38,43.44,mischief-making,mischievousness,The emotion of Mischief can significantly influence an individual's thoughts and behaviors.
-openness,Positive,55.65,5.83,21.39,12.15,4.98,nakedness,receptiveness,"Openness manifests uniquely in different individuals, affecting their outlook and relationships."
-panic,Negative,33.46,18.72,7.09,14.79,25.94,terror,affright,Understanding Panic offers insight into the human emotional landscape and personal growth.
-quiescence,Positive,18.91,43.29,32.51,3.00,2.28,dormancy,quiescency,"Quiescence is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-resentment,Negative,26.72,29.31,30.50,2.89,10.58,bitterness,gall,Delving into Resentment reveals its multifaceted nature and impact on daily life.
-triumph,Other,14.02,8.75,21.55,10.75,44.94,victory,prevail,"Triumph is a profound emotional state, often shaping our perceptions and interactions."
-unease,Negative,22.67,21.85,40.68,12.72,2.08,malaise,uneasiness,Experiencing Unease involves a complex interplay of feelings and physiological responses.
-wistfulness,Negative,1.04,3.60,7.07,78.79,9.50,longing,pensiveness,The emotion of Wistfulness can significantly influence an individual's thoughts and behaviors.
-exuberance,Positive,7.40,5.58,6.95,21.13,58.93,enthusiasm,ebullience,"Exuberance manifests uniquely in different individuals, affecting their outlook and relationships."
-gloom,Negative,34.63,6.31,2.24,4.81,52.01,somberness,sombreness,Understanding Gloom offers insight into the human emotional landscape and personal growth.
-detachment,Negative,3.43,6.67,41.56,14.99,33.35,withdrawal,disengagement,"Detachment is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-forbearance,Positive,3.39,37.24,30.72,4.17,24.48,patience,longanimity,Delving into Forbearance reveals its multifaceted nature and impact on daily life.
-bliss,Positive,2.65,18.35,48.52,9.48,21.00,blissfulness,cloud nine,"Bliss is a profound emotional state, often shaping our perceptions and interactions."
-drive,Neutral,14.91,4.03,11.31,64.46,5.30,thrust,driving force,Experiencing Drive involves a complex interplay of feelings and physiological responses.
-elation,Positive,4.29,63.84,15.35,7.67,8.84,high spirits,lightness,The emotion of Elation can significantly influence an individual's thoughts and behaviors.
-fatigue,Negative,14.12,27.23,25.28,29.68,3.68,weariness,tiredness,"Fatigue manifests uniquely in different individuals, affecting their outlook and relationships."
-generosity,Positive,48.35,5.88,5.91,32.54,7.32,generousness,unselfishness,Understanding Generosity offers insight into the human emotional landscape and personal growth.
-hurt,Negative,27.39,38.69,2.18,29.91,1.84,injury,harm,"Hurt is a nuanced emotion that surfaces in particular moments, shaping thoughts, behaviors, relationships, insights, and personal growth for many."
-illumination,Positive,0.37,6.76,38.21,43.99,10.66,light,clarification,Delving into Illumination reveals its multifaceted nature and impact on daily life.
-joviality,Positive,12.63,5.93,5.54,44.97,30.92,jollity,jolliness,"Joviality is a profound emotional state, often shaping our perceptions and interactions."
-kindness,Positive,0.37,25.09,34.41,30.49,9.64,forgivingness,benignity,Experiencing Kindness involves a complex interplay of feelings and physiological responses.
+awe,Positive,26.61,15.61,10.34,2.24,45.20,fear,reverence,"Awe is a powerful feeling of respect and wonder, inspired by something grand or majestic."
+schadenfreude,Negative,15.04,19.64,5.07,57.16,3.09,gloating,malicious joy,"Schadenfreude is the complex pleasure derived from another person's misfortune."
+liminality,Neutral,3.96,2.36,55.77,24.37,13.54,in-betweenness,threshold state,"Liminality describes the disorienting, transitional state of being in-between, without a clear position or identity."
+serenity,Positive,20.23,23.33,1.56,40.10,14.78,repose,quiet,"Serenity is a peaceful and calm state, free from agitation or disturbance."
+melancholy,Negative,1.36,33.92,2.06,36.72,25.94,black bile,melancholic,"Melancholy is a pensive sadness, often with no obvious cause, characterized by a thoughtful or reflective mood."
+euphoria,Positive,42.21,24.20,7.31,4.02,22.25,euphory,ecstasy,"Euphoria is an intense state of happiness and well-being, often characterized by exhilaration and joy."
+nostalgia,Mixed,12.17,4.66,33.78,36.58,12.81,homesickness,reminiscence,"Nostalgia is a bittersweet longing for the past, often for a period or place with happy personal associations."
+frustration,Negative,21.96,2.63,30.06,22.59,22.75,defeat,thwarting,"Frustration is a feeling of annoyance or anger, resulting from the inability to achieve something."
+anticipation,Neutral,19.87,35.62,0.50,41.93,2.08,expectancy,prediction,"Anticipation is a feeling of excitement or eagerness about something that is going to happen."
+perplexity,Negative,13.26,0.15,12.46,56.31,17.82,confusion,bewilderment,"Perplexity describes a state of being confused, puzzled, or bewildered."
+jealousy,Negative,14.28,13.20,12.34,20.88,39.31,green-eyed monster,envy,"Jealousy is a feeling of resentment or bitterness towards someone for their possessions, qualities, or success, or a possessive protectiveness."
+compassion,Positive,43.31,9.20,7.60,37.81,2.09,compassionateness,pity,"Compassion is a deep awareness of the suffering of another, coupled with the desire to alleviate it."
+apprehension,Negative,12.10,33.55,6.71,22.78,24.85,apprehensiveness,dread,"Apprehension is a feeling of anxiety or fear that something bad or unpleasant will happen."
+apathy,Negative,11.57,14.88,30.70,14.25,28.60,indifference,numbness,"Apathy is a lack of interest, enthusiasm, or concern, characterized by indifference."
+solace,Positive,11.67,1.75,7.06,14.31,65.20,consolation,solacement,"Solace is comfort or consolation in a time of distress or sadness."
+yearning,Mixed,14.49,16.27,10.02,12.46,46.76,longing,hungriness,"Yearning is a feeling of intense longing for something, often accompanied by a sense of sadness or wistfulness."
+ardor,Positive,2.45,23.50,47.77,10.09,16.18,ardour,elan,"Ardor is characterized by great enthusiasm or passion, often for a cause or activity."
+ennui,Negative,12.06,2.22,6.70,52.80,26.22,boredom,tedium,"Ennui is a feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement; boredom."
+jubilation,Positive,25.79,17.32,15.61,4.81,36.46,exultation,jubilance,"Jubilation is a feeling of great happiness and triumph, often expressed through celebration."
+remorse,Negative,34.58,5.65,55.78,2.77,1.22,compunction,self-reproach,"Remorse is a deep regret or guilt for a wrong committed, leading to self-reproach."
+suspicion,Negative,0.10,16.66,7.11,43.60,32.54,intuition,hunch,"Suspicion is a feeling or belief that someone is guilty of an illegal or dishonest act without proof."
+gratitude,Positive,41.48,26.37,24.03,0.09,8.03,thankfulness,appreciation,"Gratitude is the quality of being thankful, a readiness to show appreciation for and to return kindness."
+trepidation,Negative,3.79,20.26,48.06,27.35,0.54,dread,unease,"Trepidation is a feeling of fear or agitation about something that may happen."
+astonishment,Negative,2.47,28.56,10.88,43.61,14.48,amazement,surprise,"Astonishment is a feeling of great surprise and wonder, often causing momentary confusion."
+pride,Positive,33.77,1.60,2.85,6.81,54.97,pridefulness,superbia,"Pride is a feeling of deep pleasure or satisfaction derived from one's own achievements, or from qualities or possessions that one admires."
+shame,Negative,13.56,1.21,8.52,23.20,53.51,disgrace,ignominy,"Shame is a painful feeling of humiliation or distress caused by the consciousness of wrong or foolish behavior."
+admiration,Positive,3.56,10.81,42.83,15.46,27.34,esteem,wonder,"Admiration is a feeling of respect and wonder, often inspired by exceptional skill, achievement, or quality."
+wonder,Positive,39.76,3.20,31.46,8.97,16.61,wonderment,admiration,"Wonder is a feeling of surprise mingled with admiration, caused by something beautiful, unexpected, or inexplicable."
+guilt,Negative,13.68,0.41,54.74,7.78,23.39,guiltiness,guilty conscience,"Guilt is the fact of having committed a specified or implied offense or crime, leading to feelings of responsibility for a wrongdoing."
+confusion,Negative,12.18,6.72,32.01,24.10,25.00,mental confusion,confusedness,"Confusion is a state of being unclear, disordered, or bewildered, often leading to disorientation."
+respect,Positive,18.49,7.29,38.54,34.89,0.79,regard,esteem,"Respect is a feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements."
+relief,Positive,22.27,15.98,19.43,2.16,40.16,alleviation,assuagement,"Relief is a feeling of reassurance and relaxation following release from anxiety or distress."
+love,Positive,11.54,32.59,23.91,21.43,10.53,passion,beloved,"Love is an intense feeling of deep affection, care, and strong liking for someone or something."
+hatred,Negative,2.43,23.94,26.32,39.68,7.63,hate,loathing,"Hatred is an intense and passionate dislike or ill will."
+contempt,Negative,2.64,43.64,23.05,11.73,18.94,disdain,scorn,"Contempt is the feeling that a person or a thing is beneath consideration, worthless, or deserving scorn."
+trust,Positive,36.31,9.13,15.66,15.63,23.28,reliance,trustingness,"Trust is a firm belief in the reliability, truth, ability, or strength of someone or something."
+anger,Negative,41.02,8.28,34.25,0.54,15.91,choler,ire,"Anger is a strong feeling of annoyance, displeasure, or hostility."
+fear,Negative,4.88,17.59,2.19,64.11,11.23,fearfulness,fright,"Fear is an unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat."
+sadness,Negative,1.41,10.64,27.59,49.74,10.61,unhappiness,sorrow,"Sadness is the emotional pain associated with, or characterized by, feelings of disadvantage, loss, despair, grief, helplessness, disappointment and sorrow."
+happiness,Positive,14.93,38.39,0.79,21.78,24.11,felicity,joyfulness,"Happiness is a state of well-being and contentment, characterized by joy or pleasure."
+disgust,Negative,18.55,38.17,8.00,29.06,6.23,gross out,revolt,"Disgust is a feeling of revulsion or strong disapproval aroused by something unpleasant or offensive."
+surprise,Positive,32.58,4.99,26.69,25.88,9.86,surprisal,storm,"Surprise is an unexpected or astonishing event, fact, or thing, leading to a transient emotional response."
+hope,Positive,27.13,3.38,10.66,35.85,22.97,expectation,aspiration,"Hope is an optimistic state of mind that is based on an expectation of positive outcomes."
+despair,Negative,3.08,21.90,40.44,1.77,32.81,desperation,hopelessness,"Despair is the complete loss or absence of hope, often leading to resignation."
+ecstasy,Positive,54.66,1.99,3.94,19.32,20.09,rapture,transport,"Ecstasy is an overwhelming feeling of great happiness or joyful excitement, often involving a trance-like state."
+anxiety,Negative,8.97,33.61,16.85,11.19,29.39,anxiousness,nervousness,"Anxiety is a feeling of worry, nervousness, or unease, typically about an event or something with an uncertain outcome."
+boredom,Negative,20.23,44.65,20.55,13.98,0.59,ennui,tedium,"Boredom is a state of weariness and dissatisfaction with something tedious or uninteresting."
+curiosity,Positive,43.42,1.03,10.16,14.51,30.88,wonder,curio,"Curiosity is a strong desire to know or learn something, driving exploration and inquiry."
+envy,Negative,42.51,22.83,1.56,15.00,18.10,enviousness,invidia,"Envy is a feeling of discontented or resentful longing aroused by someone else's possessions, qualities, or luck."
+acceptance,Positive,4.29,46.70,37.49,8.44,3.09,credence,adoption,"Acceptance is the act of assenting to an idea or situation without resistance, often accompanied by inner peace."
+defeat,Negative,47.66,21.91,0.92,10.85,18.65,licking,frustration,"Defeat is the feeling of having lost a contest or struggle, often leading to a sense of failure."
+determination,Positive,18.40,40.04,9.92,22.75,8.89,finding,purpose,"Determination is a firm intention to achieve a goal, characterized by resolve and perseverance."
+embarrassment,Negative,36.49,4.26,6.43,24.43,28.39,overplus,plethora,"Embarrassment is a feeling of self-consciousness, shame, or awkwardness, often arising from a social misstep."
+humility,Positive,1.80,23.82,52.98,16.12,5.28,humbleness,modesty,"Humility is the quality of having a modest or low view of one's own importance."
+indignation,Negative,23.77,20.80,17.76,11.96,25.71,outrage,resentment,"Indignation is anger or annoyance provoked by what is perceived as unfair treatment."
+inspiration,Positive,18.66,7.43,41.40,26.04,6.48,brainchild,divine guidance,"Inspiration is the process of being mentally stimulated to do or feel something, especially to do something creative."
+joy,Positive,3.86,33.01,25.45,16.47,21.21,joyousness,joyfulness,"Joy is a feeling of great pleasure and happiness, often accompanied by delight."
+loneliness,Negative,3.63,23.68,24.45,12.34,35.91,solitariness,forlornness,"Loneliness is a feeling of sadness or desolation caused by lack of companionship or isolation."
+obsession,Negative,29.31,17.67,5.36,25.82,21.84,compulsion,fixation,"Obsession is the state of being completely preoccupied with someone or something, often to an unhealthy degree."
+optimism,Positive,28.97,9.32,7.81,37.89,16.00,hopefulness,positivity,"Optimism is a hopeful and confident feeling about the future or the success of something."
+pessimism,Negative,9.00,40.17,1.02,13.26,36.55,negativity,fatalism,"Pessimism is a tendency to see the worst aspect of things or believe that the worst will happen."
+regret,Negative,10.87,11.62,26.22,31.46,19.82,sorrow,rue,"Regret is a feeling of sadness, repentance, or disappointment over something that has happened or been done."
+resilience,Positive,13.46,37.59,2.89,38.33,7.73,resiliency,toughness,"Resilience is the capacity to recover quickly from difficulties; toughness and adaptability."
+satisfaction,Positive,51.40,10.41,14.85,11.53,11.81,gratification,atonement,"Satisfaction is the fulfillment of one's wishes, expectations, or needs, or the pleasure derived from this."
+synergy,Positive,20.66,19.11,32.74,5.80,21.68,synergism,cooperation,"Synergy is the feeling of enhanced cooperation and combined effort, producing a greater effect than the sum of individual efforts."
+tranquility,Positive,48.03,7.22,7.87,10.79,26.09,repose,quiet,"Tranquility is the quality or state of being tranquil; calm."
+vulnerability,Negative,9.58,71.03,8.16,5.04,6.19,exposure,susceptibility,"Vulnerability is the quality or state of being exposed to the possibility of being attacked or harmed, either physically or emotionally."
+warmth,Positive,1.19,78.01,2.23,5.14,13.43,heat,warmheartedness,"Warmth is a feeling of tender affection, kindness, or friendliness."
+zeal,Positive,20.85,15.73,1.07,20.96,41.39,ardor,ardour,"Zeal is great energy or enthusiasm in pursuit of a cause or objective."
+agitation,Negative,42.90,12.23,22.26,15.42,7.19,ferment,fermentation,"Agitation is a state of anxiety or nervous excitement."
+bewilderment,Negative,24.21,2.10,31.16,19.95,22.58,obfuscation,puzzlement,"Bewilderment is a feeling of being perplexed and confused."
+calmness,Positive,30.85,17.81,1.84,20.22,29.28,composure,calm,"Calmness is the state of being free from agitation or strong emotion, characterized by peace and quiet."
+discouragement,Negative,5.83,34.93,4.45,27.79,27.00,disheartenment,dismay,"Discouragement is a loss of confidence or enthusiasm, often leading to a reduction in effort or hope."
+empathy,Positive,31.56,5.84,7.81,2.63,52.15,understanding,compassion,"Empathy is the ability to understand and share the feelings of another, fostering connection."
+fascination,Negative,18.15,0.26,4.61,47.44,29.53,captivation,enchantment,"Fascination is the quality of being extremely interesting and attractive, often leading to deep absorption."
+glee,Positive,5.47,38.82,28.59,12.02,15.10,hilarity,mirth,"Glee is great delight or amusement, often expressed with laughter or animation."
+heartbreak,Negative,33.15,35.42,4.82,21.74,4.86,grief,heartache,"Heartbreak is overwhelming distress, sorrow, or grief, especially that caused by the loss of a loved one or a severe disappointment."
+kinship,Neutral,0.91,6.53,13.48,78.29,0.78,affinity,family relationship,"Kinship is a feeling of closeness or connection with others, often based on shared characteristics or origin."
+longing,Negative,2.90,31.68,13.21,40.34,11.87,yearning,hungriness,"Longing is a strong, yearning desire for something, especially something unattainable or far away."
+mischief,Negative,24.08,15.09,12.01,5.38,43.44,mischief-making,mischievousness,"Mischief is playful misbehavior or trouble-making, often with a hint of naughtiness."
+openness,Positive,55.65,5.83,21.39,12.15,4.98,nakedness,receptiveness,"Openness is the quality of being accessible or transparent, often fostering trust and understanding."
+panic,Negative,33.46,18.72,7.09,14.79,25.94,terror,affright,"Panic is a sudden, uncontrollable fear or anxiety, often causing unthinking behavior."
+quiescence,Positive,18.91,43.29,32.51,3.00,2.28,dormancy,quiescency,"Quiescence is a state of inactivity or dormancy, characterized by stillness and peace."
+resentment,Negative,26.72,29.31,30.50,2.89,10.58,bitterness,gall,"Resentment is a bitter indignation at having been treated unfairly, or a feeling of ill will."
+triumph,Positive,14.02,8.75,21.55,10.75,44.94,victory,prevail,"Triumph is a great victory or achievement, often accompanied by a feeling of joy and success."
+unease,Negative,22.67,21.85,40.68,12.72,2.08,malaise,uneasiness,"Unease is a feeling of anxiety or discomfort, often without a clear cause."
+wistfulness,Negative,1.04,3.60,7.07,78.79,9.50,longing,pensiveness,"Wistfulness is a feeling of vague or regretful longing, often for something lost or unattainable."
+exuberance,Positive,7.40,5.58,6.95,21.13,58.93,enthusiasm,ebullience,"Exuberance is the quality of being full of energy, excitement, and cheerfulness."
+gloom,Negative,34.63,6.31,2.24,4.81,52.01,somberness,sombreness,"Gloom is a feeling of despondency or depression, often accompanied by darkness or dimness."
+detachment,Negative,3.43,6.67,41.56,14.99,33.35,withdrawal,disengagement,"Detachment is the state of being objective or aloof, free from emotional involvement."
+forbearance,Positive,3.39,37.24,30.72,4.17,24.48,patience,longanimity,"Forbearance is patient self-control, restraint, and tolerance."
+bliss,Positive,2.65,18.35,48.52,9.48,21.00,blissfulness,cloud nine,"Bliss is perfect happiness; great joy."
+drive,Neutral,14.91,4.03,11.31,64.46,5.30,thrust,driving force,"Drive is a strong desire or urge, often motivating towards a specific goal or action."
+elation,Positive,4.29,63.84,15.35,7.67,8.84,high spirits,lightness,"Elation is great happiness and exhilaration, often associated with a sense of triumph."
+fatigue,Negative,14.12,27.23,25.28,29.68,3.68,weariness,tiredness,"Fatigue is extreme tiredness, typically resulting from mental or physical exertion or illness."
+generosity,Positive,48.35,5.88,5.91,32.54,7.32,generousness,unselfishness,"Generosity is the quality of being kind and giving, often involving liberality in sharing."
+hurt,Negative,27.39,38.69,2.18,29.91,1.84,injury,harm,"Hurt is a feeling of emotional pain or distress, often caused by unkind words or actions."
+illumination,Positive,0.37,6.76,38.21,43.99,10.66,light,clarification,"Illumination is the action of supplying or brightening with light, or a sudden spiritual or intellectual enlightenment."
+joviality,Positive,12.63,5.93,5.54,44.97,30.92,jollity,jolliness,"Joviality is the quality of being cheerful and friendly, often expressed through good humor."
+kindness,Positive,0.37,25.09,34.41,30.49,9.64,forgivingness,benignity,"Kindness is the quality of being friendly, generous, and considerate, showing benevolence."

@@ -146,7 +146,7 @@ class TestDatabase:
     
     def test_emotion_categories_valid(self):
         """Test that emotion categories are from expected set"""
-        valid_categories = {'Positive', 'Negative', 'Neutral', 'Other'}
+        valid_categories = {'Positive', 'Negative', 'Neutral', 'Mixed'}
         actual_categories = set(_df['emotion_category'].unique())
         assert actual_categories.issubset(valid_categories)
 

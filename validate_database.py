@@ -14,7 +14,7 @@ def analyze_emotion_chemistry():
     # Group by emotion category and analyze averages
     category_stats = _df.groupby('emotion_category')[CHEM_COLS].agg(['mean', 'std']).round(2)
     
-    for category in ['Positive', 'Negative', 'Neutral', 'Other']:
+    for category in ['Positive', 'Negative', 'Neutral', 'Mixed']:
         if category in category_stats.index:
             print(f"\n{category.upper()} EMOTIONS:")
             for chem in CHEM_COLS:

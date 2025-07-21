@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Iris - Neurochemical Emotion Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Project Iris</h1>
+            <p class="subtitle">Core 5-Emotion Neurochemical Explorer</p>
+        </div>
+
+        <div class="controls">
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Dopamine</span>
+                    <span class="slider-value" id="dopamine-value">50</span>
+                </div>
+                <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Serotonin</span>
+                    <span class="slider-value" id="serotonin-value">50</span>
+                </div>
+                <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Oxytocin</span>
+                    <span class="slider-value" id="oxytocin-value">50</span>
+                </div>
+                <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Cortisol</span>
+                    <span class="slider-value" id="cortisol-value">50</span>
+                </div>
+                <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Norepinephrine</span>
+                    <span class="slider-value" id="norepinephrine-value">50</span>
+                </div>
+                <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="emotion-display">
+                <div class="emotion-name" id="emotion-name">—</div>
+                <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
+                <div class="confidence-score" id="confidence-score">Confidence: --</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Slider elements
+        const sliders = {
+            dopamine: document.getElementById('dopamine'),
+            serotonin: document.getElementById('serotonin'),
+            oxytocin: document.getElementById('oxytocin'),
+            cortisol: document.getElementById('cortisol'),
+            norepinephrine: document.getElementById('norepinephrine')
+        };
+
+        // Display elements for current slider values
+        const valueDisplays = {
+            dopamine: document.getElementById('dopamine-value'),
+            serotonin: document.getElementById('serotonin-value'),
+            oxytocin: document.getElementById('oxytocin-value'),
+            cortisol: document.getElementById('cortisol-value'),
+            norepinephrine: document.getElementById('norepinephrine-value')
+        };
+
+        // Result display elements
+        const emotionNameEl = document.getElementById('emotion-name');
+        const emotionDescriptionEl = document.getElementById('emotion-description');
+        const confidenceScoreEl = document.getElementById('confidence-score');
+
+        const API_URL = 'http://localhost:5000/infer';
+
+        // Send values to backend and update display
+        function updateEmotionDisplay() {
+            const payload = {
+                dopamine: parseFloat(sliders.dopamine.value),
+                serotonin: parseFloat(sliders.serotonin.value),
+                oxytocin: parseFloat(sliders.oxytocin.value),
+                cortisol: parseFloat(sliders.cortisol.value),
+                norepinephrine: parseFloat(sliders.norepinephrine.value)
+            };
+
+            Object.keys(valueDisplays).forEach(key => {
+                valueDisplays[key].textContent = sliders[key].value;
+            });
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                emotionNameEl.textContent = data.emotion;
+                confidenceScoreEl.textContent = `Confidence: ${(data.confidence * 100).toFixed(0)}%`;
+                emotionDescriptionEl.textContent = data.description;
+            })
+            .catch(err => {
+                emotionNameEl.textContent = 'Error';
+                emotionDescriptionEl.textContent = 'Unable to reach backend.';
+                confidenceScoreEl.textContent = '';
+                console.error(err);
+            });
+        }
+
+        // Add event listeners to all sliders
+        Object.keys(sliders).forEach(chemical => {
+            const slider = sliders[chemical];
+            slider.addEventListener('input', updateEmotionDisplay);
+        });
+
+        // Initialize display
+        updateEmotionDisplay();
+    </script>
+</body>
+</html>

@@ -130,7 +130,8 @@ Plutchik-style “emotion anchors” let you snap to common states (joy, anger, 
 
 ### **Frontend Prototype (HTML/CSS/JS)**
 - 🎛️ **Interactive Sliders** for 5 neurochemicals with real-time updates
-- 🎨 **Gradient UI** with glassmorphism design and smooth animations
+- 🎨 **Modular Design** with separated HTML, CSS, and JavaScript files
+- 🎭 **Glassmorphism UI** with gradient design and smooth animations
 - 📱 **Responsive Design** optimized for desktop and mobile devices
 - ⚡ **Live Backend Integration** with Flask API for real-time emotion inference
 

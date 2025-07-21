@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    min-height: calc(100vh - 40px);
+}
+
+.header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #64ffda, #bb86fc, #cf6679);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    font-weight: 300;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.results {
+    text-align: center;
+    padding: 40px;
+}
+
+.slider-group {
+    margin-bottom: 30px;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.chemical-name {
+    color: #64ffda;
+    font-weight: 500;
+}
+
+.slider-value {
+    background: rgba(100, 255, 218, 0.2);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    min-width: 35px;
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider:hover {
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #64ffda, #bb86fc);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.8);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #64ffda, #bb86fc);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.emotion-display {
+    margin-bottom: 40px;
+}
+
+.emotion-name {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #bb86fc, #64ffda, #cf6679);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(187, 134, 252, 0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.2); }
+}
+
+.emotion-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #c0c0c0;
+    margin-bottom: 25px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    padding-left: 12px;
+}
+
+.confidence-score {
+    font-size: 1rem;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 8px 16px;
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .emotion-name {
+        font-size: 2.2rem;
+    }
+    
+    .controls {
+        padding: 30px;
+    }
+}

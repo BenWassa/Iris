@@ -3,166 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Iris - Standalone Demo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Project Iris - Neurochemical Emotion Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="main-container">
+        <header class="header">
             <h1>Project Iris</h1>
             <p class="subtitle">Core 5-Emotion Neurochemical Explorer</p>
-        </div>
+        </header>
 
-        <div class="controls">
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span class="chemical-name">Dopamine</span>
-                    <span class="slider-value" id="dopamine-value">50</span>
+        <div class="content-grid">
+            <aside class="controls-panel">
+                <h2 class="controls-title">Neurochemical Levels</h2>
+                
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span class="chemical-name">Dopamine</span>
+                        <span class="slider-value" id="dopamine-value">50</span>
+                    </div>
+                    <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
                 </div>
-                <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
-            </div>
 
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span class="chemical-name">Serotonin</span>
-                    <span class="slider-value" id="serotonin-value">50</span>
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span class="chemical-name">Serotonin</span>
+                        <span class="slider-value" id="serotonin-value">50</span>
+                    </div>
+                    <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
                 </div>
-                <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
-            </div>
 
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span class="chemical-name">Oxytocin</span>
-                    <span class="slider-value" id="oxytocin-value">50</span>
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span class="chemical-name">Oxytocin</span>
+                        <span class="slider-value" id="oxytocin-value">50</span>
+                    </div>
+                    <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
                 </div>
-                <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
-            </div>
 
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span class="chemical-name">Cortisol</span>
-                    <span class="slider-value" id="cortisol-value">50</span>
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span class="chemical-name">Cortisol</span>
+                        <span class="slider-value" id="cortisol-value">50</span>
+                    </div>
+                    <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
                 </div>
-                <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
-            </div>
 
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span class="chemical-name">Norepinephrine</span>
-                    <span class="slider-value" id="norepinephrine-value">50</span>
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span class="chemical-name">Norepinephrine</span>
+                        <span class="slider-value" id="norepinephrine-value">50</span>
+                    </div>
+                    <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
                 </div>
-                <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
-            </div>
-        </div>
+            </aside>
 
-        <div class="results">
-            <div class="emotion-display">
-                <div class="emotion-name" id="emotion-name">—</div>
-                <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
-                <div class="confidence-score" id="confidence-score">Confidence: --</div>
-            </div>
-
-            <div class="visualization-container">
-                <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
-                <svg id="emotion-canvas" viewBox="0 0 600 500">
-                    <defs>
-                        <pattern id="grid" width="60" height="50" patternUnits="userSpaceOnUse">
-                            <path d="M 60 0 L 0 0 0 50" fill="none" class="grid-line"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
-                    <line x1="60" y1="450" x2="540" y2="450" class="axis-line"/>
-                    <line x1="60" y1="50" x2="60" y2="450" class="axis-line"/>
-                    <text x="60" y="470" class="axis-label" text-anchor="middle">Unpleasant</text>
-                    <text x="540" y="470" class="axis-label" text-anchor="middle">Pleasant</text>
-                    <text x="300" y="490" class="axis-label" text-anchor="middle">Valence</text>
-                    <text x="45" y="455" class="axis-label" text-anchor="end">Calm</text>
-                    <text x="45" y="55" class="axis-label" text-anchor="end">Intense</text>
-                    <text x="30" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 30, 250)">Arousal</text>
-                    <text x="150" y="120" class="quadrant-label">Stress</text>
-                    <text x="450" y="120" class="quadrant-label">Excitement</text>
-                    <text x="150" y="380" class="quadrant-label">Depression</text>
-                    <text x="450" y="380" class="quadrant-label">Contentment</text>
-                    <circle id="emotion-dot" class="emotion-dot" r="12" cx="300" cy="250"/>
-                    <text id="emotion-label" class="emotion-label" x="300" y="235">Adjust Sliders</text>
-                </svg>
-            </div>
+            <main class="results-panel">
+                <section class="emotion-display">
+                    <div class="emotion-name" id="emotion-name">—</div>
+                    <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
+                    <div class="confidence-score" id="confidence-score">Confidence: --</div>
+                </section>
+                
+                <section class="visualization-container">
+                    <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
+                    <svg id="emotion-canvas" viewBox="0 0 700 500">
+                        <!-- Grid lines -->
+                        <defs>
+                            <pattern id="grid" width="70" height="50" patternUnits="userSpaceOnUse">
+                                <path d="M 70 0 L 0 0 0 50" fill="none" class="grid-line"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                        
+                        <!-- Main axes -->
+                        <line x1="70" y1="425" x2="630" y2="425" class="axis-line"/>
+                        <line x1="70" y1="75" x2="70" y2="425" class="axis-line"/>
+                        
+                        <!-- Valence axis labels -->
+                        <text x="70" y="445" class="axis-label" text-anchor="middle">Unpleasant</text>
+                        <text x="630" y="445" class="axis-label" text-anchor="middle">Pleasant</text>
+                        <text x="350" y="470" class="axis-label" text-anchor="middle">Valence</text>
+                        
+                        <!-- Arousal axis labels -->
+                        <text x="55" y="430" class="axis-label" text-anchor="end">Calm</text>
+                        <text x="55" y="80" class="axis-label" text-anchor="end">Intense</text>
+                        <text x="40" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 40, 250)">Arousal</text>
+                        
+                        <!-- Quadrant labels -->
+                        <text x="210" y="140" class="quadrant-label">Stress</text>
+                        <text x="490" y="140" class="quadrant-label">Excitement</text>
+                        <text x="210" y="360" class="quadrant-label">Depression</text>
+                        <text x="490" y="360" class="quadrant-label">Contentment</text>
+                        
+                        <!-- Emotion dot -->
+                        <circle id="emotion-dot" class="emotion-dot" r="12" cx="350" cy="250"/>
+                        
+                        <!-- Emotion label -->
+                        <text id="emotion-label" class="emotion-label" x="350" y="225">Adjust Sliders</text>
+                    </svg>
+                    
+                    <div class="emotion-controls">
+                        <button class="emotion-btn" onclick="testEmotionDisplay('happiness')">Happiness</button>
+                        <button class="emotion-btn" onclick="testEmotionDisplay('anger')">Anger</button>
+                        <button class="emotion-btn" onclick="testEmotionDisplay('sadness')">Sadness</button>
+                        <button class="emotion-btn" onclick="testEmotionDisplay('fear')">Fear</button>
+                        <button class="emotion-btn" onclick="testEmotionDisplay('disgust')">Disgust</button>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
 
     <script type="module">
-        import { emotionCoords, canvasConfig, plotDimensions } from './js/emotionCoords.js';
-        import { updateEmotionDot, coordsToSVG, initializeEmotionDot } from './js/updateEmotionDot.js';
-        import { inferEmotion } from './js/inference.js';
+import { inferEmotion } from "./js/inference.js";
+        // Emotion coordinates data
+        const emotionCoords = {
+            happiness: { 
+                valence: 0.9, 
+                arousal: 0.85, 
+                description: "A state of joy, contentment, and positivity.",
+                quadrant: "Excitement"
+            },
+            anger: { 
+                valence: 0.2, 
+                arousal: 0.9, 
+                description: "A surge of intensity often tied to injustice or frustration.",
+                quadrant: "Stress"
+            },
+            sadness: { 
+                valence: 0.25, 
+                arousal: 0.3, 
+                description: "A deep emotional state of loss, reflection, or hurt.",
+                quadrant: "Depression"
+            },
+            fear: { 
+                valence: 0.15, 
+                arousal: 0.8, 
+                description: "A heightened alertness in the face of perceived danger.",
+                quadrant: "Stress"
+            },
+            disgust: { 
+                valence: 0.2, 
+                arousal: 0.45, 
+                description: "A visceral rejection of something repulsive or wrong.",
+                quadrant: "Depression"
+            }
+        };
 
-        function updateEmotionVisualizationInternal(emotion) {
-            if (!emotionCoords[emotion]) return;
-            const coords = emotionCoords[emotion];
-            const svgCoords = coordsToSVG(coords.valence, coords.arousal);
-            const dot = document.getElementById('emotion-dot');
-            const label = document.getElementById('emotion-label');
-            if (!dot || !label) return;
-            dot.setAttribute('cx', svgCoords.x);
-            dot.setAttribute('cy', svgCoords.y);
-            label.setAttribute('x', svgCoords.x);
-            label.setAttribute('y', svgCoords.y - 20);
-            label.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+        // Neurochemical profiles for each emotion (from CSV data)
+        const emotionNeurochemistry = {
+            happiness: { dopamine: 80, serotonin: 70, oxytocin: 60, cortisol: 10, norepinephrine: 40 },
+            anger: { dopamine: 30, serotonin: 20, oxytocin: 10, cortisol: 70, norepinephrine: 90 },
+            sadness: { dopamine: 20, serotonin: 30, oxytocin: 25, cortisol: 60, norepinephrine: 20 },
+            fear: { dopamine: 15, serotonin: 10, oxytocin: 5, cortisol: 80, norepinephrine: 80 },
+            disgust: { dopamine: 10, serotonin: 25, oxytocin: 5, cortisol: 50, norepinephrine: 15 }
+        };
+
+        // Canvas configuration
+        const canvasConfig = {
+            width: 700,
+            height: 500,
+            margin: { left: 70, right: 70, top: 75, bottom: 75 }
+        };
+
+        const plotDimensions = {
+            width: canvasConfig.width - canvasConfig.margin.left - canvasConfig.margin.right,
+            height: canvasConfig.height - canvasConfig.margin.top - canvasConfig.margin.bottom
+        };
+
+        // Convert valence/arousal coordinates to SVG pixel coordinates
+        function coordsToSVG(valence, arousal) {
+            const x = canvasConfig.margin.left + (valence * plotDimensions.width);
+            const y = canvasConfig.margin.top + ((1 - arousal) * plotDimensions.height);
+            return { x, y };
         }
 
-        const sliders = {
-            dopamine: document.getElementById('dopamine'),
-            serotonin: document.getElementById('serotonin'),
-            oxytocin: document.getElementById('oxytocin'),
-            cortisol: document.getElementById('cortisol'),
-            norepinephrine: document.getElementById('norepinephrine')
-        };
-
-        const valueDisplays = {
-            dopamine: document.getElementById('dopamine-value'),
-            serotonin: document.getElementById('serotonin-value'),
-            oxytocin: document.getElementById('oxytocin-value'),
-            cortisol: document.getElementById('cortisol-value'),
-            norepinephrine: document.getElementById('norepinephrine-value')
-        };
-
-        const emotionNameEl = document.getElementById('emotion-name');
-        const emotionDescriptionEl = document.getElementById('emotion-description');
-        const confidenceScoreEl = document.getElementById('confidence-score');
-
-        function updateEmotionDisplay() {
-            const payload = {
-                dopamine: parseFloat(sliders.dopamine.value),
-                serotonin: parseFloat(sliders.serotonin.value),
-                oxytocin: parseFloat(sliders.oxytocin.value),
-                cortisol: parseFloat(sliders.cortisol.value),
-                norepinephrine: parseFloat(sliders.norepinephrine.value)
+        // Visual feedback for emotion transitions
+        function updateDotVisualFeedback(dot, emotionData) {
+            const quadrantColors = {
+                'Excitement': '#00FFE0',
+                'Stress': '#FF6B6B',
+                'Depression': '#6B73FF',
+                'Contentment': '#4ECDC4'
             };
+            
+            const color = quadrantColors[emotionData.quadrant] || '#00FFE0';
+            dot.setAttribute('fill', color);
+            dot.style.filter = `drop-shadow(0 0 15px ${color})`;
+        }
 
-            Object.keys(valueDisplays).forEach(key => {
-                valueDisplays[key].textContent = sliders[key].value;
+        // Update emotion visualization
+        function updateEmotionVisualizationInternal(emotion) {
+            if (!emotionCoords[emotion]) {
+                console.warn(`Unknown emotion for visualization: ${emotion}`);
+                return;
+            }
+
+            const coords = emotionCoords[emotion];
+            const svgCoords = coordsToSVG(coords.valence, coords.arousal);
+            
+            const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
+            
+            if (!dot || !label) return;
+
+            dot.setAttribute('cx', svgCoords.x);
+            dot.setAttribute('cy', svgCoords.y);
+            
+            label.setAttribute('x', svgCoords.x);
+            label.setAttribute('y', svgCoords.y - 25);
+            label.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+            
+            const quadrantColors = {
+                'Excitement': '#00FFE0',
+                'Stress': '#FF6B6B',
+                'Depression': '#6B73FF',
+                'Contentment': '#4ECDC4'
+            };
+            label.setAttribute('fill', quadrantColors[coords.quadrant] || '#00FFE0');
+            
+            updateDotVisualFeedback(dot, coords);
+        }
+
+        // Initialize dot in center
+        function initializeEmotionDot() {
+            const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
+            
+            if (dot && label) {
+                const centerX = canvasConfig.width / 2;
+                const centerY = canvasConfig.height / 2;
+                
+                dot.setAttribute('cx', centerX);
+                dot.setAttribute('cy', centerY);
+                label.setAttribute('x', centerX);
+                label.setAttribute('y', centerY - 25);
+                label.textContent = 'Adjust Sliders';
+            }
+        }
+
+        // Update sliders to match emotion neurochemistry with smooth animation
+        function updateSlidersToEmotion(emotion, animate = true) {
+            if (!emotionNeurochemistry[emotion]) {
+                console.warn(`No neurochemical data for emotion: ${emotion}`);
+                return;
+            }
+
+            const levels = emotionNeurochemistry[emotion];
+            const chemicals = ['dopamine', 'serotonin', 'oxytocin', 'cortisol', 'norepinephrine'];
+            
+            chemicals.forEach(chemical => {
+                const slider = document.getElementById(chemical);
+                const valueDisplay = document.getElementById(`${chemical}-value`);
+                
+                if (slider && valueDisplay) {
+                    if (animate) {
+                        // Smooth animation from current to target value
+                        const startValue = parseInt(slider.value);
+                        const targetValue = levels[chemical];
+                        const duration = 800; // ms
+                        const startTime = performance.now();
+                        
+                        function animateSlider(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Cubic bezier easing function (ease-out)
+                            const easing = 1 - Math.pow(1 - progress, 3);
+                            const currentValue = Math.round(startValue + (targetValue - startValue) * easing);
+                            
+                            slider.value = currentValue;
+                            valueDisplay.textContent = currentValue;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(animateSlider);
+                            }
+                        }
+                        
+                        requestAnimationFrame(animateSlider);
+                    } else {
+                        slider.value = levels[chemical];
+                        valueDisplay.textContent = levels[chemical];
+                    }
+                }
             });
+        }
+        // Update emotion display
+        function updateEmotionDisplay() {
+            const sliders = ['dopamine', 'serotonin', 'oxytocin', 'cortisol', 'norepinephrine'];
+            const payload = {};
+            
+            sliders.forEach(slider => {
+                const element = document.getElementById(slider);
+                if (element) {
+                    payload[slider] = parseFloat(element.value);
+                    // Update value display
+                    const valueDisplay = document.getElementById(`${slider}-value`);
+                    if (valueDisplay) {
+                        valueDisplay.textContent = element.value;
+                    }
+                }
+            });
+
+            const emotionNameEl = document.getElementById('emotion-name');
+            const emotionDescriptionEl = document.getElementById('emotion-description');
+            const confidenceScoreEl = document.getElementById('confidence-score');
+
+            if (!emotionNameEl || !emotionDescriptionEl || !confidenceScoreEl) return;
 
             const result = inferEmotion(payload);
             if (result.emotion) {
                 emotionNameEl.textContent = result.emotion;
-                confidenceScoreEl.textContent = `Confidence: ${(result.confidence * 100).toFixed(0)}%`;
                 emotionDescriptionEl.textContent = result.description;
+                confidenceScoreEl.textContent = `Confidence: ${(result.confidence * 100).toFixed(0)}%`;
                 updateEmotionVisualizationInternal(result.emotion);
             } else {
-                emotionNameEl.textContent = 'N/A';
-                emotionDescriptionEl.textContent = 'Adjust the sliders to infer an emotion.';
-                confidenceScoreEl.textContent = '';
+                emotionNameEl.textContent = "N/A";
+                emotionDescriptionEl.textContent = "Adjust the sliders to infer an emotion.";
+                confidenceScoreEl.textContent = "";
                 initializeEmotionDot();
             }
         }
 
-        Object.keys(sliders).forEach(key => {
-            sliders[key].addEventListener('input', updateEmotionDisplay);
-        });
+        // Test function for emotion buttons with two-way binding
+        function testEmotionDisplay(emotion) {
+            // Update visualization
+            updateEmotionVisualizationInternal(emotion);
+            
+            // Update sliders to match emotion
+            updateSlidersToEmotion(emotion, true);
+            
+            // Update button states
+            document.querySelectorAll('.emotion-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event?.target?.classList.add('active');
+            
+            // Update emotion display
+            const emotionNameEl = document.getElementById('emotion-name');
+            const emotionDescriptionEl = document.getElementById('emotion-description');
+            const confidenceScoreEl = document.getElementById('confidence-score');
+            
+            if (emotionNameEl && emotionDescriptionEl && confidenceScoreEl) {
+                emotionNameEl.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+                emotionDescriptionEl.textContent = emotionCoords[emotion]?.description || "Exploring emotional state...";
+                confidenceScoreEl.textContent = `Demo Mode: ${Math.floor(Math.random() * 20 + 80)}%`;
+            }
+        }
 
-        initializeEmotionDot();
-        updateEmotionDisplay();
+        // Make functions global
+        window.testEmotionDisplay = testEmotionDisplay;
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                // Add event listeners to all sliders
+                const chemicals = ['dopamine', 'serotonin', 'oxytocin', 'cortisol', 'norepinephrine'];
+                
+                chemicals.forEach(chemical => {
+                    const slider = document.getElementById(chemical);
+                    if (slider) {
+                        slider.addEventListener('input', function() {
+                            // Update value display
+                            const valueDisplay = document.getElementById(`${chemical}-value`);
+                            if (valueDisplay) {
+                                valueDisplay.textContent = slider.value;
+                            }
+                            // Update emotion with debouncing
+                            clearTimeout(slider.updateTimeout);
+                            slider.updateTimeout = setTimeout(updateEmotionDisplay, 300);
+                        });
+                    }
+                });
+
+                // Initialize the visualization
+                initializeEmotionDot();
+                
+                // Initialize display with current slider values
+                updateEmotionDisplay();
+            }, 100);
+        });
     </script>
 </body>
 </html>

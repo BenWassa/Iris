@@ -1,15 +1,23 @@
 # Project Iris
 
+
 **A poetic, science-informed tool to *see* your neurochemistry.**
 
-Transform your inner neurochemical "cocktail" into## 🚧 Roadmap
+Transform your inner neurochemical "cocktail" into a living emotional map through an interactive, real-time visualization that maps 5 key neurotransmitters to core emotions in a 2D Valence–Arousal space.
 
-1️⃣ ~~**Wireframe** basic sliders, dot, and anchors~~ ✅ **Complete**  
-2️⃣ ~~**Connect Backend** — API integration for live emotion inference~~ ✅ **Complete**  
-3️⃣ **Add Visualization** — 2D emotion space canvas with D3.js  
-4️⃣ **Enhance Interactivity** — heatmap trails and emotion anchors  
-5️⃣ **Add Playback** — session scrubber to replay emotional journeys  
-6️⃣ **Write Footnotes** — disclaimers & sources to explain "illustrative" natureng emotional map through an interactive visualization that maps 5 key neurotransmitters to core emotions.
+---
+
+## 🚀 Major 2025 Upgrade: Enhanced Emotion Dot Visualization
+
+- **Smooth SVG-based dot animation** with cubic-bezier transitions (0.8s)
+- **Valence–Arousal grid** with quadrant color coding and glassmorphic styling
+- **Real-time API integration**: slider input → backend inference → instant visual feedback
+- **Modular JavaScript**: `emotionCoords.js` (emotion mapping), `updateEmotionDot.js` (visual logic)
+- **Quadrant-based color system**: Excitement (cyan), Stress (red), Depression (blue), Contentment (teal)
+- **Mobile-responsive** and accessible UI
+- **Demo/test controls** for rapid prototyping and user education
+
+---
 
 ---
 
@@ -94,27 +102,36 @@ No clinical promises — just a creative mirror for reflection and self-awarenes
 
 ---
 
+
 ## 🎨 Visual System
 
-| Dimension | What it means | How it’s shown |
-|-----------|----------------|----------------|
-| Valence   | Pleasant ↔ Unpleasant | Hue (red ↔ grey ↔ teal) |
-| Arousal   | Calm ↔ Excited | Saturation (pale ↔ vivid) |
-| Dominance | Power/Control | Lightness (dark = low control, bright = high control) |
+| Dimension | What it means         | How it’s shown                |
+|-----------|----------------------|-------------------------------|
+| Valence   | Pleasant ↔ Unpleasant| X-axis, color hue, left↔right |
+| Arousal   | Calm ↔ Excited       | Y-axis, color intensity, up↔down |
+| Quadrant  | Emotional cluster     | Dot color: cyan/red/blue/teal |
 
-Heatmaps show where your states cluster over time.  
-Plutchik-style “emotion anchors” let you snap to common states (joy, anger, trust, etc.).
+**Dot color by quadrant:**
+- Excitement: **Cyan** (#00FFE0)
+- Stress: **Red** (#FF6B6B)
+- Depression: **Blue** (#6B73FF)
+- Contentment: **Teal** (#4ECDC4)
+
+**Glassmorphic** SVG canvas with grid, axis labels, and quadrant markers. Dot animates smoothly between positions. Responsive and touch-friendly.
 
 ---
 
+
 ## 🧩 Key Features
 
-✅ **Live Sliders** — adjust neurochemical “levels”  
-✅ **Real-time Dot** — see your emotional point drift  
-✅ **Category Anchors** — click to jump to a classic emotion  
-✅ **Session Replay** — comet tail playback of your day  
-✅ **Heatmap History** — see patterns form over days/weeks  
-✅ **Accessible Colours** — built-in colour-blind toggle  
+✅ **Live Sliders** — adjust neurochemical “levels”
+✅ **Real-time Dot** — see your emotional point drift in a 2D Valence–Arousal space
+✅ **Quadrant Color Coding** — dot color reflects emotional quadrant
+✅ **Glassmorphic UI** — modern, gradient, and blurred backgrounds
+✅ **Modular JS** — easy to extend and maintain
+✅ **API Integration** — instant feedback from backend inference
+✅ **Demo/Test Controls** — try any emotion instantly
+✅ **Accessible & Responsive** — works on all devices
 ✅ **Privacy-first** — local-only by default; cloud optional with consent
 
 ---
@@ -128,28 +145,32 @@ Plutchik-style “emotion anchors” let you snap to common states (joy, anger, 
 - 🧪 **pytest** for testing infrastructure
 - 🌐 **Flask API** with CORS support for cross-origin requests
 
-### **Frontend Prototype (HTML/CSS/JS)**
+
+### **Frontend (HTML/CSS/JS)**
 - 🎛️ **Interactive Sliders** for 5 neurochemicals with real-time updates
-- 🎨 **Modular Design** with separated HTML, CSS, and JavaScript files
-- 🎭 **Glassmorphism UI** with gradient design and smooth animations
-- 📱 **Responsive Design** optimized for desktop and mobile devices
-- ⚡ **Live Backend Integration** with Flask API for real-time emotion inference
+- 📊 **SVG Emotion Dot Visualization** with quadrant color coding
+- 🎨 **Modular Design**: `emotionCoords.js`, `updateEmotionDot.js`
+- 🎭 **Glassmorphism UI** with gradients and blur
+- 📱 **Responsive Design** for desktop and mobile
+- ⚡ **Live Backend Integration** with Flask API
+
 
 ### **Planned Enhancements**
-- 📊 **D3.js Canvas** for 2-D emotion space visualization
 - 🔥 **Heatmap Trails** showing emotion history over time
 - ⏱️ **WebWorkers** for smooth rendering performance
 - 🔒 **LocalStorage** for private session saves
 
 ---
 
+
 ## 🚧 Roadmap
 
 1️⃣ **Wireframe** basic sliders, dot, and anchors  
-2️⃣ **Prototype** heatmap with dummy data (CSV)  
-3️⃣ **Tune Mapping** — validate slider → emotion labels with test users  
-4️⃣ **Add Playback** — basic scrubber to replay a session  
-5️⃣ **Write Footnotes** — disclaimers & sources to explain “illustrative” nature
+2️⃣ **API Integration** — live emotion inference  
+3️⃣ **Enhanced Visualization** — SVG dot, quadrant color, glassmorphism  
+4️⃣ **Heatmap/Playback** — session replay and trails  
+5️⃣ **Accessibility & Mobile** — full responsive support  
+6️⃣ **Expanded Database** — more emotions, richer mapping
 
 ---
 
@@ -161,13 +182,14 @@ No data leaves your device without clear consent.
 
 ---
 
+
 ## 📚 References
 
 - Russell’s Circumplex Model  
 - PAD / VAD Emotion Space  
 - Plutchik’s Wheel of Emotions  
 - Geneva Emotion Wheel  
-- [See full refs](#) (TODO: add links in `/docs/`)
+- [See full refs](#) (see `/docs/`)
 
 ---
 

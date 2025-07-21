@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Iris - Standalone Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Project Iris</h1>
+            <p class="subtitle">Core 5-Emotion Neurochemical Explorer</p>
+        </div>
+
+        <div class="controls">
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Dopamine</span>
+                    <span class="slider-value" id="dopamine-value">50</span>
+                </div>
+                <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Serotonin</span>
+                    <span class="slider-value" id="serotonin-value">50</span>
+                </div>
+                <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Oxytocin</span>
+                    <span class="slider-value" id="oxytocin-value">50</span>
+                </div>
+                <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Cortisol</span>
+                    <span class="slider-value" id="cortisol-value">50</span>
+                </div>
+                <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span class="chemical-name">Norepinephrine</span>
+                    <span class="slider-value" id="norepinephrine-value">50</span>
+                </div>
+                <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="emotion-display">
+                <div class="emotion-name" id="emotion-name">—</div>
+                <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
+                <div class="confidence-score" id="confidence-score">Confidence: --</div>
+            </div>
+
+            <div class="visualization-container">
+                <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
+                <svg id="emotion-canvas" viewBox="0 0 600 500">
+                    <defs>
+                        <pattern id="grid" width="60" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 60 0 L 0 0 0 50" fill="none" class="grid-line"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                    <line x1="60" y1="450" x2="540" y2="450" class="axis-line"/>
+                    <line x1="60" y1="50" x2="60" y2="450" class="axis-line"/>
+                    <text x="60" y="470" class="axis-label" text-anchor="middle">Unpleasant</text>
+                    <text x="540" y="470" class="axis-label" text-anchor="middle">Pleasant</text>
+                    <text x="300" y="490" class="axis-label" text-anchor="middle">Valence</text>
+                    <text x="45" y="455" class="axis-label" text-anchor="end">Calm</text>
+                    <text x="45" y="55" class="axis-label" text-anchor="end">Intense</text>
+                    <text x="30" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 30, 250)">Arousal</text>
+                    <text x="150" y="120" class="quadrant-label">Stress</text>
+                    <text x="450" y="120" class="quadrant-label">Excitement</text>
+                    <text x="150" y="380" class="quadrant-label">Depression</text>
+                    <text x="450" y="380" class="quadrant-label">Contentment</text>
+                    <circle id="emotion-dot" class="emotion-dot" r="12" cx="300" cy="250"/>
+                    <text id="emotion-label" class="emotion-label" x="300" y="235">Adjust Sliders</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { emotionCoords, canvasConfig, plotDimensions } from './js/emotionCoords.js';
+        import { updateEmotionDot, coordsToSVG, initializeEmotionDot } from './js/updateEmotionDot.js';
+        import { inferEmotion } from './js/inference.js';
+
+        function updateEmotionVisualizationInternal(emotion) {
+            if (!emotionCoords[emotion]) return;
+            const coords = emotionCoords[emotion];
+            const svgCoords = coordsToSVG(coords.valence, coords.arousal);
+            const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
+            if (!dot || !label) return;
+            dot.setAttribute('cx', svgCoords.x);
+            dot.setAttribute('cy', svgCoords.y);
+            label.setAttribute('x', svgCoords.x);
+            label.setAttribute('y', svgCoords.y - 20);
+            label.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+        }
+
+        const sliders = {
+            dopamine: document.getElementById('dopamine'),
+            serotonin: document.getElementById('serotonin'),
+            oxytocin: document.getElementById('oxytocin'),
+            cortisol: document.getElementById('cortisol'),
+            norepinephrine: document.getElementById('norepinephrine')
+        };
+
+        const valueDisplays = {
+            dopamine: document.getElementById('dopamine-value'),
+            serotonin: document.getElementById('serotonin-value'),
+            oxytocin: document.getElementById('oxytocin-value'),
+            cortisol: document.getElementById('cortisol-value'),
+            norepinephrine: document.getElementById('norepinephrine-value')
+        };
+
+        const emotionNameEl = document.getElementById('emotion-name');
+        const emotionDescriptionEl = document.getElementById('emotion-description');
+        const confidenceScoreEl = document.getElementById('confidence-score');
+
+        function updateEmotionDisplay() {
+            const payload = {
+                dopamine: parseFloat(sliders.dopamine.value),
+                serotonin: parseFloat(sliders.serotonin.value),
+                oxytocin: parseFloat(sliders.oxytocin.value),
+                cortisol: parseFloat(sliders.cortisol.value),
+                norepinephrine: parseFloat(sliders.norepinephrine.value)
+            };
+
+            Object.keys(valueDisplays).forEach(key => {
+                valueDisplays[key].textContent = sliders[key].value;
+            });
+
+            const result = inferEmotion(payload);
+            if (result.emotion) {
+                emotionNameEl.textContent = result.emotion;
+                confidenceScoreEl.textContent = `Confidence: ${(result.confidence * 100).toFixed(0)}%`;
+                emotionDescriptionEl.textContent = result.description;
+                updateEmotionVisualizationInternal(result.emotion);
+            } else {
+                emotionNameEl.textContent = 'N/A';
+                emotionDescriptionEl.textContent = 'Adjust the sliders to infer an emotion.';
+                confidenceScoreEl.textContent = '';
+                initializeEmotionDot();
+            }
+        }
+
+        Object.keys(sliders).forEach(key => {
+            sliders[key].addEventListener('input', updateEmotionDisplay);
+        });
+
+        initializeEmotionDot();
+        updateEmotionDisplay();
+    </script>
+</body>
+</html>

@@ -1,6 +1,26 @@
 # Project Iris
 
 
+## 🟢 Quick Start
+
+1. **Start the backend API:**
+   ```sh
+   python api.py
+   ```
+   (Requires Python 3.13, Flask, pandas, numpy)
+
+2. **Open the frontend:**
+   - Open `docs/index.html` in your browser.
+   - Adjust the 5 neurochemical sliders to see real-time emotion inference and visualization.
+
+3. **Test mode:**
+   - Use the emotion buttons below the visualization to demo each core emotion instantly (no backend required).
+
+> **Note:** All visualization is now in `index.html`. The old `emotion_dot_visualization.html` is deprecated and can be deleted.
+
+---
+
+
 **A poetic, science-informed tool to *see* your neurochemistry.**
 
 Transform your inner neurochemical "cocktail" into a living emotional map through an interactive, real-time visualization that maps 5 key neurotransmitters to core emotions in a 2D Valence–Arousal space.
@@ -16,6 +36,23 @@ Transform your inner neurochemical "cocktail" into a living emotional map throug
 - **Quadrant-based color system**: Excitement (cyan), Stress (red), Depression (blue), Contentment (teal)
 - **Mobile-responsive** and accessible UI
 - **Demo/test controls** for rapid prototyping and user education
+
+---
+
+## 🧩 Modular JavaScript Structure
+
+- `docs/js/emotionCoords.js`: Maps emotion names to valence/arousal coordinates, quadrant, and description.
+- `docs/js/updateEmotionDot.js`: Handles SVG dot animation, color feedback, and exposes global functions for integration.
+
+You can use these functions in your HTML or other scripts:
+
+```js
+window.updateEmotionDot('happiness'); // Move dot to 'happiness' position
+window.initializeEmotionDot();        // Reset dot to center
+window.startEmotionDemo();            // Auto-cycle through emotions
+```
+
+---
 
 ---
 
@@ -46,6 +83,15 @@ result = infer_emotion({
 - **5 neurochemicals** per emotion with values 0-100
 - **Rich metadata**: descriptive text and emotion categories (Positive/Negative)
 - **Biologically-informed mappings**: High cortisol → stress emotions, high oxytocin → bonding emotions
+
+---
+
+## 🖼️ Visualization Modes
+
+- **Live API Mode:** Adjust sliders to send values to the backend and see the inferred emotion and dot update in real time.
+- **Demo/Test Mode:** Use the emotion buttons to instantly visualize any core emotion (works even if backend is offline).
+
+---
 
 ### **Core Algorithm**
 - **Cosine similarity matching** between input vector and emotion database

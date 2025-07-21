@@ -167,6 +167,9 @@
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
+            font-style: italic;
+            border-left: 4px solid rgba(255, 255, 255, 0.2);
+            padding-left: 12px;
         }
 
         .confidence-score {
@@ -250,111 +253,15 @@
 
         <div class="results">
             <div class="emotion-display">
-                <div class="emotion-name" id="emotion-name">Anticipation</div>
-                <div class="emotion-description" id="emotion-description">
-                    Experiencing Anticipation involves a complex interplay of expectation, readiness, and imagination.
-                </div>
-                <div class="confidence-score" id="confidence-score">Confidence: 0.85</div>
+                <div class="emotion-name" id="emotion-name">&mdash;</div>
+                <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
+                <div class="confidence-score" id="confidence-score">Confidence: --</div>
             </div>
         </div>
     </div>
 
     <script>
-        // Emotion profiles from the provided data
-        const emotionProfiles = [
-            {
-                name: "Awe",
-                dopamine: 26.61,
-                serotonin: 15.61,
-                oxytocin: 10.34,
-                cortisol: 2.24,
-                norepinephrine: 45.20,
-                description: "Awe is a profound emotional state, often shaping how individuals perceive the vastness of existence."
-            },
-            {
-                name: "Schadenfreude",
-                dopamine: 15.04,
-                serotonin: 19.64,
-                oxytocin: 5.07,
-                cortisol: 57.16,
-                norepinephrine: 3.09,
-                description: "Experiencing Schadenfreude involves a complex interplay of rivalry, judgment, and shadow satisfaction."
-            },
-            {
-                name: "Liminality",
-                dopamine: 3.96,
-                serotonin: 2.36,
-                oxytocin: 55.77,
-                cortisol: 24.37,
-                norepinephrine: 13.54,
-                description: "The emotion of Liminality can significantly influence one's sense of transition, identity, and transformation."
-            },
-            {
-                name: "Serenity",
-                dopamine: 20.23,
-                serotonin: 23.33,
-                oxytocin: 1.56,
-                cortisol: 40.10,
-                norepinephrine: 14.78,
-                description: "Serenity manifests uniquely in different individuals, linked with calm and internal balance."
-            },
-            {
-                name: "Melancholy",
-                dopamine: 1.36,
-                serotonin: 33.92,
-                oxytocin: 2.06,
-                cortisol: 36.72,
-                norepinephrine: 25.94,
-                description: "Understanding Melancholy offers insight into the bittersweet undertone of remembrance and loss."
-            },
-            {
-                name: "Euphoria",
-                dopamine: 42.21,
-                serotonin: 24.20,
-                oxytocin: 7.31,
-                cortisol: 4.02,
-                norepinephrine: 22.25,
-                description: "Euphoria is a nuanced emotion that surfaces in response to intense joy or reward."
-            },
-            {
-                name: "Nostalgia",
-                dopamine: 12.17,
-                serotonin: 4.66,
-                oxytocin: 33.78,
-                cortisol: 36.58,
-                norepinephrine: 12.81,
-                description: "Delving into Nostalgia reveals its multifaceted nature — a longing imbued with sweetness and ache."
-            },
-            {
-                name: "Frustration",
-                dopamine: 21.96,
-                serotonin: 2.63,
-                oxytocin: 30.06,
-                cortisol: 22.59,
-                norepinephrine: 22.75,
-                description: "Frustration is a profound emotional state, often emerging from blocked goals and conflicting desires."
-            },
-            {
-                name: "Anticipation",
-                dopamine: 19.87,
-                serotonin: 35.62,
-                oxytocin: 0.50,
-                cortisol: 41.93,
-                norepinephrine: 2.08,
-                description: "Experiencing Anticipation involves a complex interplay of expectation, readiness, and imagination."
-            },
-            {
-                name: "Perplexity",
-                dopamine: 13.26,
-                serotonin: 0.15,
-                oxytocin: 12.46,
-                cortisol: 56.31,
-                norepinephrine: 17.82,
-                description: "The emotion of Perplexity can significantly influence cognitive uncertainty and existential questioning."
-            }
-        ];
-
-        // Get slider elements
+        // Slider elements
         const sliders = {
             dopamine: document.getElementById('dopamine'),
             serotonin: document.getElementById('serotonin'),
@@ -363,7 +270,7 @@
             norepinephrine: document.getElementById('norepinephrine')
         };
 
-        // Get value display elements
+        // Display elements for current slider values
         const valueDisplays = {
             dopamine: document.getElementById('dopamine-value'),
             serotonin: document.getElementById('serotonin-value'),
@@ -372,58 +279,16 @@
             norepinephrine: document.getElementById('norepinephrine-value')
         };
 
-        // Get result display elements
+        // Result display elements
         const emotionNameEl = document.getElementById('emotion-name');
         const emotionDescriptionEl = document.getElementById('emotion-description');
         const confidenceScoreEl = document.getElementById('confidence-score');
 
-        // Calculate cosine similarity between two vectors
-        function cosineSimilarity(vec1, vec2) {
-            const dotProduct = vec1.reduce((sum, val, i) => sum + val * vec2[i], 0);
-            const mag1 = Math.sqrt(vec1.reduce((sum, val) => sum + val * val, 0));
-            const mag2 = Math.sqrt(vec2.reduce((sum, val) => sum + val * val, 0));
-            return dotProduct / (mag1 * mag2);
-        }
+        const API_URL = 'http://localhost:5000/infer';
 
-        // Find closest emotion match
-        function findClosestEmotion(userValues) {
-            const userVector = [
-                userValues.dopamine,
-                userValues.serotonin,
-                userValues.oxytocin,
-                userValues.cortisol,
-                userValues.norepinephrine
-            ];
-
-            let bestMatch = null;
-            let bestSimilarity = -1;
-
-            emotionProfiles.forEach(emotion => {
-                const emotionVector = [
-                    emotion.dopamine,
-                    emotion.serotonin,
-                    emotion.oxytocin,
-                    emotion.cortisol,
-                    emotion.norepinephrine
-                ];
-
-                const similarity = cosineSimilarity(userVector, emotionVector);
-                
-                if (similarity > bestSimilarity) {
-                    bestSimilarity = similarity;
-                    bestMatch = emotion;
-                }
-            });
-
-            return {
-                emotion: bestMatch,
-                confidence: bestSimilarity
-            };
-        }
-
-        // Update emotion display
+        // Send values to backend and update display
         function updateEmotionDisplay() {
-            const userValues = {
+            const payload = {
                 dopamine: parseFloat(sliders.dopamine.value),
                 serotonin: parseFloat(sliders.serotonin.value),
                 oxytocin: parseFloat(sliders.oxytocin.value),
@@ -431,22 +296,37 @@
                 norepinephrine: parseFloat(sliders.norepinephrine.value)
             };
 
-            const result = findClosestEmotion(userValues);
-            
-            emotionNameEl.textContent = result.emotion.name;
-            emotionDescriptionEl.textContent = result.emotion.description;
-            confidenceScoreEl.textContent = `Confidence: ${result.confidence.toFixed(2)}`;
+            Object.keys(valueDisplays).forEach(key => {
+                valueDisplays[key].textContent = sliders[key].value;
+            });
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                emotionNameEl.textContent = data.emotion;
+                confidenceScoreEl.textContent = `Confidence: ${(data.confidence * 100).toFixed(0)}%`;
+                emotionDescriptionEl.textContent = data.description;
+            })
+            .catch(err => {
+                emotionNameEl.textContent = 'Error';
+                emotionDescriptionEl.textContent = 'Unable to reach backend.';
+                confidenceScoreEl.textContent = '';
+                console.error(err);
+            });
         }
+
+        // If you encounter CORS errors, ensure Flask adds:
+        //   from flask_cors import CORS
+        //   CORS(app)
 
         // Add event listeners to all sliders
         Object.keys(sliders).forEach(chemical => {
             const slider = sliders[chemical];
-            const valueDisplay = valueDisplays[chemical];
-
-            slider.addEventListener('input', function() {
-                valueDisplay.textContent = this.value;
-                updateEmotionDisplay();
-            });
+            slider.addEventListener('input', updateEmotionDisplay);
         });
 
         // Initialize display

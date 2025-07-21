@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load the emotion profile dataset
-DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'emotion_chem_profiles.csv')
+DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'emotion_core_5.csv')
 emotion_df = pd.read_csv(DATA_PATH)
 
 # Define the neurotransmitter columns

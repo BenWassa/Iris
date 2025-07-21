@@ -1,0 +1,6 @@
+emotion,dopamine,serotonin,oxytocin,cortisol,norepinephrine,description,emotion_category
+happiness,80,70,60,10,40,"A state of joy, contentment, and positivity.",Positive
+anger,30,20,10,70,90,"A surge of intensity often tied to injustice or frustration.",Negative
+sadness,20,30,25,60,20,"A deep emotional state of loss, reflection, or hurt.",Negative
+fear,15,10,5,80,80,"A heightened alertness in the face of perceived danger.",Negative
+disgust,10,25,5,50,15,"A visceral rejection of something repulsive or wrong.",Negative

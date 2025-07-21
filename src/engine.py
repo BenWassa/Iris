@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Load emotion chemical profiles on import
-DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'emotion_chem_profiles.csv')
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'emotion_core_5.csv')
 _df = pd.read_csv(DATA_PATH)
 
 CHEM_COLS = ['dopamine', 'serotonin', 'oxytocin', 'cortisol', 'norepinephrine']

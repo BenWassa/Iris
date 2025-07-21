@@ -26,16 +26,6 @@
                     </defs>
                     <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
                     
-                    <!-- Quadrant backgrounds -->
-                    <rect id="quad-excitement" x="350" y="75" width="280" height="175" class="quadrant-bg" fill="#00FFE0"/>
-                    <rect id="quad-stress" x="70" y="75" width="280" height="175" class="quadrant-bg" fill="#FF6B6B"/>
-                    <rect id="quad-depression" x="70" y="250" width="280" height="175" class="quadrant-bg" fill="#6B73FF"/>
-                    <rect id="quad-contentment" x="350" y="250" width="280" height="175" class="quadrant-bg" fill="#4ECDC4"/>
-                    
-                    <!-- Quadrant boundary lines -->
-                    <line x1="350" y1="75" x2="350" y2="425" class="quadrant-boundary"/>
-                    <line x1="70" y1="250" x2="630" y2="250" class="quadrant-boundary"/>
-                    
                     <!-- Main axes -->
                     <line x1="70" y1="425" x2="630" y2="425" class="axis-line"/>
                     <line x1="70" y1="75" x2="70" y2="425" class="axis-line"/>
@@ -50,24 +40,19 @@
                     <text x="55" y="80" class="axis-label" text-anchor="end">Intense</text>
                     <text x="40" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 40, 250)">Arousal</text>
                     
-                    <!-- Enhanced quadrant labels -->
-                    <text x="210" y="140" class="quadrant-label">STRESS</text>
-                    <text x="210" y="155" class="quadrant-label" style="font-size: 10px; opacity: 0.7;">Anger • Fear</text>
-                    
-                    <text x="490" y="140" class="quadrant-label">EXCITEMENT</text>
-                    <text x="490" y="155" class="quadrant-label" style="font-size: 10px; opacity: 0.7;">Joy • Enthusiasm</text>
-                    
-                    <text x="210" y="360" class="quadrant-label">DEPRESSION</text>
-                    <text x="210" y="375" class="quadrant-label" style="font-size: 10px; opacity: 0.7;">Sadness • Disgust</text>
-                    
-                    <text x="490" y="360" class="quadrant-label">CONTENTMENT</text>
-                    <text x="490" y="375" class="quadrant-label" style="font-size: 10px; opacity: 0.7;">Peace • Satisfaction</text>
+                    <!-- Quadrant labels -->
+                    <text x="210" y="140" class="quadrant-label">Stress</text>
+                    <text x="490" y="140" class="quadrant-label">Excitement</text>
+                    <text x="210" y="360" class="quadrant-label">Depression</text>
+                    <text x="490" y="360" class="quadrant-label">Contentment</text>
                     
                     <!-- Emotion dot -->
                     <circle id="emotion-dot" class="emotion-dot" r="12" cx="350" cy="250"/>
+                    
+                    <!-- Emotion label -->
+                    <text id="emotion-label" class="emotion-label" x="350" y="225">Adjust Sliders</text>
                 </svg>
                 
-                <h3 class="emotion-controls-title">Universal Emotions</h3>
                 <div class="emotion-controls">
                     <button class="emotion-btn" onclick="testEmotionDisplay('happiness')">Happiness</button>
                     <button class="emotion-btn" onclick="testEmotionDisplay('anger')">Anger</button>
@@ -219,29 +204,42 @@
             const svgCoords = coordsToSVG(coords.valence, coords.arousal);
             
             const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
             
-            if (!dot) return;
+            if (!dot || !label) return;
 
             dot.setAttribute('cx', svgCoords.x);
             dot.setAttribute('cy', svgCoords.y);
             
+            label.setAttribute('x', svgCoords.x);
+            label.setAttribute('y', svgCoords.y - 25);
+            label.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+            
+            const quadrantColors = {
+                'Excitement': '#00FFE0',
+                'Stress': '#FF6B6B',
+                'Depression': '#6B73FF',
+                'Contentment': '#4ECDC4'
+            };
+            label.setAttribute('fill', quadrantColors[coords.quadrant] || '#00FFE0');
+            
             updateDotVisualFeedback(dot, coords);
         }
 
-        // Initialize dot in center with neutral state
+        // Initialize dot in center
         function initializeEmotionDot() {
             const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
             
-            if (dot) {
+            if (dot && label) {
                 const centerX = canvasConfig.width / 2;
                 const centerY = canvasConfig.height / 2;
                 
                 dot.setAttribute('cx', centerX);
                 dot.setAttribute('cy', centerY);
-                
-                // Set neutral color
-                dot.setAttribute('fill', '#888888');
-                dot.style.filter = 'drop-shadow(0 0 10px #888888)';
+                label.setAttribute('x', centerX);
+                label.setAttribute('y', centerY - 25);
+                label.textContent = 'Adjust Sliders';
             }
         }
 
@@ -389,19 +387,11 @@
                     }
                 });
 
-                // Initialize the visualization with neutral state
+                // Initialize the visualization
                 initializeEmotionDot();
                 
-                // Set initial neutral state - don't call API immediately
-                const emotionNameEl = document.getElementById('emotion-name');
-                const emotionDescriptionEl = document.getElementById('emotion-description');
-                const confidenceScoreEl = document.getElementById('confidence-score');
-                
-                if (emotionNameEl && emotionDescriptionEl && confidenceScoreEl) {
-                    emotionNameEl.textContent = "Neutral";
-                    emotionDescriptionEl.textContent = "Adjust the sliders to explore different emotional states.";
-                    confidenceScoreEl.textContent = "Confidence: --";
-                }
+                // Initialize display with current slider values
+                updateEmotionDisplay();
             }, 100);
         });
     </script>

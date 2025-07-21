@@ -49,7 +49,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -59,6 +59,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    height: fit-content;
 }
 
 /* Controls Panel */
@@ -69,6 +70,7 @@ body {
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    flex: 1;
 }
 
 .controls-title {
@@ -168,6 +170,7 @@ body {
     text-align: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    flex: 1;
 }
 
 .emotion-name {
@@ -222,6 +225,9 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .visualization-container::before {
@@ -264,20 +270,20 @@ body {
 }
 
 .axis-label {
-    font-size: 14px;
-    fill: #aaaaaa;
+    font-size: 12px;
+    fill: #ffffff;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
 }
 
 .grid-line {
-    stroke: #444444;
-    stroke-width: 1;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 0.5;
     opacity: 0.3;
 }
 
 .axis-line {
-    stroke: #666666;
+    stroke: #00FFE0;
     stroke-width: 2;
 }
 
@@ -308,12 +314,39 @@ body {
 }
 
 .quadrant-label {
-    font-size: 13px;
-    fill: #999999;
-    font-weight: 500;
+    font-size: 14px;
+    fill: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
     text-anchor: middle;
     font-family: 'Inter', sans-serif;
-    opacity: 0.7;
+}
+
+.quadrant-boundary {
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 1;
+    stroke-dasharray: 5,5;
+}
+
+.quadrant-bg {
+    fill-opacity: 0.08;
+}
+
+.quadrant-bg {
+    fill-opacity: 0.08;
+}
+
+.emotion-controls-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #00FFE0, #0080FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
 }
 
 .emotion-controls {
@@ -327,9 +360,6 @@ body {
 
 .emotion-btn {
     padding: 12px 24px;
-    background: rgba(0, 255, 224, 0.08);
-    border: 2px solid rgba(0, 255, 224, 0.3);
-    color: #00FFE0;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -337,19 +367,54 @@ body {
     text-transform: capitalize;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    border: 2px solid;
 }
 
-.emotion-btn:hover {
+/* Color-coded emotion buttons */
+.emotion-btn[onclick*="happiness"] {
+    background: rgba(0, 255, 224, 0.08);
+    border-color: rgba(0, 255, 224, 0.3);
+    color: #00FFE0;
+}
+
+.emotion-btn[onclick*="happiness"]:hover,
+.emotion-btn[onclick*="happiness"].active {
     background: rgba(0, 255, 224, 0.15);
-    border-color: rgba(0, 255, 224, 0.5);
-    transform: translateY(-2px);
+    border-color: #00FFE0;
     box-shadow: 0 8px 20px rgba(0, 255, 224, 0.25);
 }
 
+.emotion-btn[onclick*="anger"], .emotion-btn[onclick*="fear"] {
+    background: rgba(255, 107, 107, 0.08);
+    border-color: rgba(255, 107, 107, 0.3);
+    color: #FF6B6B;
+}
+
+.emotion-btn[onclick*="anger"]:hover, .emotion-btn[onclick*="fear"]:hover,
+.emotion-btn[onclick*="anger"].active, .emotion-btn[onclick*="fear"].active {
+    background: rgba(255, 107, 107, 0.15);
+    border-color: #FF6B6B;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.25);
+}
+
+.emotion-btn[onclick*="sadness"], .emotion-btn[onclick*="disgust"] {
+    background: rgba(107, 115, 255, 0.08);
+    border-color: rgba(107, 115, 255, 0.3);
+    color: #6B73FF;
+}
+
+.emotion-btn[onclick*="sadness"]:hover, .emotion-btn[onclick*="disgust"]:hover,
+.emotion-btn[onclick*="sadness"].active, .emotion-btn[onclick*="disgust"].active {
+    background: rgba(107, 115, 255, 0.15);
+    border-color: #6B73FF;
+    box-shadow: 0 8px 20px rgba(107, 115, 255, 0.25);
+}
+
+.emotion-btn:hover {
+    transform: translateY(-2px);
+}
+
 .emotion-btn.active {
-    background: #00FFE0;
-    color: #1e1e1e;
-    border-color: #00FFE0;
     transform: translateY(-2px);
 }
 

@@ -1,10 +1,37 @@
 ### Cortisol Interpretability Notes
 
-**Cortisol:** Often referred to as the "stress hormone," cortisol plays a crucial role in the body's stress response.
+**Cortisol** is a steroid hormone released by the adrenal glands in response to stress. Often called the *“stress hormone,”* it plays a key role in the body’s **fight-or-flight** response, regulating energy availability, inflammation, and alertness under pressure.
 
-*   **High Cortisol Values:** Typically indicate states of stress, fear, anxiety, or high arousal. It is associated with the "fight or flight" response and prolonged activation can have negative health impacts. Emotions like `fear`, `schadenfreude`, `perplexity`, `suspicion`, `sadness`, `wistfulness`, `kinship`, and `drive` show relatively high cortisol levels in the dataset, aligning with this interpretation.
-*   **Low Cortisol Values:** Generally suggest states of relaxation, calmness, well-being, or recovery from stress. Very low levels could also indicate fatigue or a dysregulated stress response, but within the context of positive emotions, they often signify tranquility. Emotions like `gratitude`, `anger`, `remorse`, `relief`, `bliss`, and `synergy` show lower cortisol levels in the dataset, suggesting less physiological stress.
+#### 🔺 High Cortisol Values
+
+Elevated cortisol levels typically indicate **activation of the stress response** — whether physical, emotional, or psychological. These states often involve **anxiety, fear, vigilance, social threat, or cognitive overload**.
+
+In the dataset, examples of emotions with **high cortisol** include:
+
+* `fear`, `perplexity`, `suspicion`, and `schadenfreude` — signaling social tension, uncertainty, or aversion.
+* `sadness`, `wistfulness`, and `drive` — which reflect inner turbulence, unresolved desire, or persistent striving.
+* `kinship` — interestingly high, perhaps pointing to the **emotional vulnerability** of attachment and care.
+
+These profiles suggest a mobilization of internal resources — to defend, pursue, or process something significant.
+
+#### 🔻 Low Cortisol Values
+
+Lower cortisol levels generally reflect **calm, relief, or restoration** — states in which the nervous system is more regulated and the body is not under perceived threat.
+
+In this dataset, emotions with **low cortisol** include:
+
+* `gratitude`, `bliss`, and `relief` — which align with safety, peace, and psychological release.
+* `remorse` and `synergy` — which may involve **reflective or reconciliatory states**, not marked by outward agitation.
+* `anger` — counterintuitively low in cortisol here, suggesting certain expressions of anger may be **energizing** or cathartic without necessarily being stressful.
+
+These emotions tend to support **recovery, bonding, or meaning-making**, rather than emergency response.
 
 ---
 
-This information can be used to interpret the `cortisol` values provided for each emotion in the CSV, helping to understand the physiological underpinnings of each emotional state.
+### 🧬 Why This Matters
+
+Understanding cortisol values helps frame each emotional profile not just by how it **feels**, but by what it **demands of the body**. In combination with other chemicals like **dopamine**, **serotonin**, **oxytocin**, and **norepinephrine**, cortisol offers insight into:
+
+* **Arousal vs. regulation**
+* **Threat vs. safety**
+* **Effort vs. surrender**

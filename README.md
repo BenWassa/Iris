@@ -2,14 +2,14 @@
 
 **A poetic, science-informed tool to *see* your neurochemistry.**
 
-Transform your inner neurochemical "cocktail" int## 🚧 Roadmap
+Transform your inner neurochemical "cocktail" into## 🚧 Roadmap
 
 1️⃣ ~~**Wireframe** basic sliders, dot, and anchors~~ ✅ **Complete**  
-2️⃣ **Connect Backend** — API integration for live emotion inference  
+2️⃣ ~~**Connect Backend** — API integration for live emotion inference~~ ✅ **Complete**  
 3️⃣ **Add Visualization** — 2D emotion space canvas with D3.js  
 4️⃣ **Enhance Interactivity** — heatmap trails and emotion anchors  
 5️⃣ **Add Playback** — session scrubber to replay emotional journeys  
-6️⃣ **Write Footnotes** — disclaimers & sources to explain "illustrative" natureing emotional map through an interactive visualization that maps 5 key neurotransmitters to 91+ unique emotions.
+6️⃣ **Write Footnotes** — disclaimers & sources to explain "illustrative" natureng emotional map through an interactive visualization that maps 5 key neurotransmitters to core emotions.
 
 ---
 
@@ -34,9 +34,9 @@ result = infer_emotion({
 ```
 
 ### **Database Schema**
-- **91 unique emotions** across 4 categories: Positive (39), Negative (43), Neutral (4), Mixed (5)
+- **5 core emotions** covering fundamental emotional states: Happiness, Anger, Sadness, Fear, Disgust
 - **5 neurochemicals** per emotion with values 0-100
-- **Rich metadata**: primary/secondary synonyms, descriptive text, emotion categories
+- **Rich metadata**: descriptive text and emotion categories (Positive/Negative)
 - **Biologically-informed mappings**: High cortisol → stress emotions, high oxytocin → bonding emotions
 
 ### **Core Algorithm**
@@ -48,28 +48,29 @@ result = infer_emotion({
 
 ## 🧪 Testing Status
 
-**✅ All 18 tests passing** - Comprehensive test suite covering:
+**✅ All 19 tests passing** - Comprehensive test suite covering:
 
 - **Functional tests**: Basic emotion inference, confidence scoring
 - **Edge cases**: Zero vectors, extreme values, missing inputs  
 - **Pattern validation**: High cortisol → fear, high oxytocin → love
 - **Database integrity**: No duplicates, valid ranges, proper categories
-- **API endpoints**: Flask backend response validation
+- **API endpoints**: Flask backend response validation (including zero vector handling)
 - **Robustness**: Input validation, consistency checks
 
 ### **🔄 Current Status**
-✅ **Core Engine** — Emotion inference with 91-emotion database  
-✅ **Testing Suite** — Comprehensive pytest coverage (18 tests passing)  
+✅ **Core Engine** — Emotion inference with 5-emotion core database  
+✅ **Testing Suite** — Comprehensive pytest coverage (19 tests passing)  
 ✅ **Data Validation** — Neurochemical profile validation scripts  
 ✅ **Flask API Backend** — RESTful endpoint for emotion inference with CORS support  
 ✅ **Frontend Prototype** — Interactive HTML demo with live sliders and emotion display  
+✅ **API Integration** — Frontend connects to backend for real-time emotion inference  
 ✅ **Documentation** — Code documentation and usage examples
 
 ### **📋 Next Steps**
-1️⃣ **API Integration** — Connect HTML frontend to Python backend  
-2️⃣ **Enhanced Visualization** — Add emotion space canvas and heatmap trails  
-3️⃣ **Session Playback** — Temporal emotion tracking and replay functionality  
-4️⃣ **Responsive Design** — Mobile-optimized interface and accessibility features
+1️⃣ **Enhanced Visualization** — Add emotion space canvas and heatmap trails  
+2️⃣ **Session Playback** — Temporal emotion tracking and replay functionality  
+3️⃣ **Responsive Design** — Mobile-optimized interface and accessibility features
+4️⃣ **Expanded Database** — Consider adding more emotions beyond core 5
 
 ---
 
@@ -123,7 +124,7 @@ Plutchik-style “emotion anchors” let you snap to common states (joy, anger, 
 ### **Current Implementation (Backend)**
 - 🐍 **Python 3.13** with pandas & numpy for data processing
 - 🧠 **Cosine Similarity Engine** for neurochemical-to-emotion mapping
-- 📊 **91-Emotion Database** with 5-dimensional neurochemical profiles
+- 📊 **5-Emotion Core Database** with 5-dimensional neurochemical profiles
 - 🧪 **pytest** for testing infrastructure
 - 🌐 **Flask API** with CORS support for cross-origin requests
 
@@ -131,7 +132,7 @@ Plutchik-style “emotion anchors” let you snap to common states (joy, anger, 
 - 🎛️ **Interactive Sliders** for 5 neurochemicals with real-time updates
 - 🎨 **Gradient UI** with glassmorphism design and smooth animations
 - 📱 **Responsive Design** optimized for desktop and mobile devices
-- ⚡ **Client-side Processing** with JavaScript cosine similarity implementation
+- ⚡ **Live Backend Integration** with Flask API for real-time emotion inference
 
 ### **Planned Enhancements**
 - 📊 **D3.js Canvas** for 2-D emotion space visualization

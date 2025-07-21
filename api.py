@@ -32,7 +32,17 @@ def infer_emotion():
             data['cortisol'],
             data['norepinephrine']
         ], dtype=float).reshape(1, -1)
-        input_norm = input_vector / np.linalg.norm(input_vector)
+        
+        # Handle zero vector case
+        input_norm_value = np.linalg.norm(input_vector)
+        if input_norm_value == 0:
+            return jsonify({
+                'emotion': 'neutral',
+                'confidence': 0.0,
+                'description': 'No neurochemical activity detected - a state of complete neutrality.'
+            })
+        
+        input_norm = input_vector / input_norm_value
 
         # Calculate cosine similarity
         similarities = cosine_similarity(input_norm, normed_vectors).flatten()

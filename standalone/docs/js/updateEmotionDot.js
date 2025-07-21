@@ -132,20 +132,4 @@ if (typeof window !== 'undefined') {
     window.updateEmotionDot = updateEmotionDot;
     window.coordsToSVG = coordsToSVG;
     window.initializeEmotionDot = initializeEmotionDot;
-}EmotionDot.js
-
-import { emotionCoords } from './emotionCoords.js';
-
-// Temporary: just logs movement — Claude's canvas code will call this later
-export function updateEmotionDot(emotionName) {
-  const coords = emotionCoords[emotionName];
-
-  if (!coords) {
-    console.warn(`No coordinates found for emotion: ${emotionName}`);
-    return;
-  }
-
-  console.log(`→ Move dot to: [valence: ${coords.valence}, arousal: ${coords.arousal}]`);
-  // Future: This is where Claude’s visualization hook will go:
-  // moveDotTo(coords.valence, coords.arousal);
 }

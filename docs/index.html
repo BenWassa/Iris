@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -55,10 +54,18 @@
 
         .content-grid {
             display: grid;
-            grid-template-columns: 450px 1fr;
-            gap: 50px;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
             align-items: start;
-            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stacked-panels {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
         /* Controls Panel */
@@ -69,8 +76,6 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 40px;
         }
 
         .controls-title {
@@ -223,6 +228,7 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .visualization-container::before {
@@ -357,7 +363,7 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .content-grid {
-                grid-template-columns: 400px 1fr;
+                grid-template-columns: 1fr;
                 gap: 40px;
             }
         }
@@ -366,10 +372,6 @@
             .content-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }
-            
-            .controls-panel {
-                position: static;
             }
         }
 
@@ -435,104 +437,104 @@
         </header>
 
         <div class="content-grid">
-            <aside class="controls-panel">
-                <h2 class="controls-title">Neurochemical Levels</h2>
+            <section class="visualization-container">
+                <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
+                <svg id="emotion-canvas" viewBox="0 0 700 500">
+                    <!-- Grid lines -->
+                    <defs>
+                        <pattern id="grid" width="70" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 70 0 L 0 0 0 50" fill="none" class="grid-line"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                    
+                    <!-- Main axes -->
+                    <line x1="70" y1="425" x2="630" y2="425" class="axis-line"/>
+                    <line x1="70" y1="75" x2="70" y2="425" class="axis-line"/>
+                    
+                    <!-- Valence axis labels -->
+                    <text x="70" y="445" class="axis-label" text-anchor="middle">Unpleasant</text>
+                    <text x="630" y="445" class="axis-label" text-anchor="middle">Pleasant</text>
+                    <text x="350" y="470" class="axis-label" text-anchor="middle">Valence</text>
+                    
+                    <!-- Arousal axis labels -->
+                    <text x="55" y="430" class="axis-label" text-anchor="end">Calm</text>
+                    <text x="55" y="80" class="axis-label" text-anchor="end">Intense</text>
+                    <text x="40" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 40, 250)">Arousal</text>
+                    
+                    <!-- Quadrant labels -->
+                    <text x="210" y="140" class="quadrant-label">Stress</text>
+                    <text x="490" y="140" class="quadrant-label">Excitement</text>
+                    <text x="210" y="360" class="quadrant-label">Depression</text>
+                    <text x="490" y="360" class="quadrant-label">Contentment</text>
+                    
+                    <!-- Emotion dot -->
+                    <circle id="emotion-dot" class="emotion-dot" r="12" cx="350" cy="250"/>
+                    
+                    <!-- Emotion label -->
+                    <text id="emotion-label" class="emotion-label" x="350" y="225">Adjust Sliders</text>
+                </svg>
                 
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span class="chemical-name">Dopamine</span>
-                        <span class="slider-value" id="dopamine-value">50</span>
-                    </div>
-                    <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
+                <div class="emotion-controls">
+                    <button class="emotion-btn" onclick="testEmotionDisplay('happiness')">Happiness</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('anger')">Anger</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('sadness')">Sadness</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('fear')">Fear</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('disgust')">Disgust</button>
                 </div>
+            </section>
 
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span class="chemical-name">Serotonin</span>
-                        <span class="slider-value" id="serotonin-value">50</span>
-                    </div>
-                    <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
-                </div>
-
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span class="chemical-name">Oxytocin</span>
-                        <span class="slider-value" id="oxytocin-value">50</span>
-                    </div>
-                    <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
-                </div>
-
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span class="chemical-name">Cortisol</span>
-                        <span class="slider-value" id="cortisol-value">50</span>
-                    </div>
-                    <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
-                </div>
-
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span class="chemical-name">Norepinephrine</span>
-                        <span class="slider-value" id="norepinephrine-value">50</span>
-                    </div>
-                    <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
-                </div>
-            </aside>
-
-            <main class="results-panel">
+            <div class="stacked-panels">
                 <section class="emotion-display">
                     <div class="emotion-name" id="emotion-name">—</div>
                     <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
                     <div class="confidence-score" id="confidence-score">Confidence: --</div>
                 </section>
-                
-                <section class="visualization-container">
-                    <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
-                    <svg id="emotion-canvas" viewBox="0 0 700 500">
-                        <!-- Grid lines -->
-                        <defs>
-                            <pattern id="grid" width="70" height="50" patternUnits="userSpaceOnUse">
-                                <path d="M 70 0 L 0 0 0 50" fill="none" class="grid-line"/>
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
-                        
-                        <!-- Main axes -->
-                        <line x1="70" y1="425" x2="630" y2="425" class="axis-line"/>
-                        <line x1="70" y1="75" x2="70" y2="425" class="axis-line"/>
-                        
-                        <!-- Valence axis labels -->
-                        <text x="70" y="445" class="axis-label" text-anchor="middle">Unpleasant</text>
-                        <text x="630" y="445" class="axis-label" text-anchor="middle">Pleasant</text>
-                        <text x="350" y="470" class="axis-label" text-anchor="middle">Valence</text>
-                        
-                        <!-- Arousal axis labels -->
-                        <text x="55" y="430" class="axis-label" text-anchor="end">Calm</text>
-                        <text x="55" y="80" class="axis-label" text-anchor="end">Intense</text>
-                        <text x="40" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 40, 250)">Arousal</text>
-                        
-                        <!-- Quadrant labels -->
-                        <text x="210" y="140" class="quadrant-label">Stress</text>
-                        <text x="490" y="140" class="quadrant-label">Excitement</text>
-                        <text x="210" y="360" class="quadrant-label">Depression</text>
-                        <text x="490" y="360" class="quadrant-label">Contentment</text>
-                        
-                        <!-- Emotion dot -->
-                        <circle id="emotion-dot" class="emotion-dot" r="12" cx="350" cy="250"/>
-                        
-                        <!-- Emotion label -->
-                        <text id="emotion-label" class="emotion-label" x="350" y="225">Adjust Sliders</text>
-                    </svg>
+
+                <aside class="controls-panel">
+                    <h2 class="controls-title">Neurochemical Levels</h2>
                     
-                    <div class="emotion-controls">
-                        <button class="emotion-btn" onclick="testEmotionDisplay('happiness')">Happiness</button>
-                        <button class="emotion-btn" onclick="testEmotionDisplay('anger')">Anger</button>
-                        <button class="emotion-btn" onclick="testEmotionDisplay('sadness')">Sadness</button>
-                        <button class="emotion-btn" onclick="testEmotionDisplay('fear')">Fear</button>
-                        <button class="emotion-btn" onclick="testEmotionDisplay('disgust')">Disgust</button>
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="chemical-name">Dopamine</span>
+                            <span class="slider-value" id="dopamine-value">50</span>
+                        </div>
+                        <input type="range" id="dopamine" class="slider" min="0" max="100" value="50">
                     </div>
-                </section>
-            </main>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="chemical-name">Serotonin</span>
+                            <span class="slider-value" id="serotonin-value">50</span>
+                        </div>
+                        <input type="range" id="serotonin" class="slider" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="chemical-name">Oxytocin</span>
+                            <span class="slider-value" id="oxytocin-value">50</span>
+                        </div>
+                        <input type="range" id="oxytocin" class="slider" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="chemical-name">Cortisol</span>
+                            <span class="slider-value" id="cortisol-value">50</span>
+                        </div>
+                        <input type="range" id="cortisol" class="slider" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="chemical-name">Norepinephrine</span>
+                            <span class="slider-value" id="norepinephrine-value">50</span>
+                        </div>
+                        <input type="range" id="norepinephrine" class="slider" min="0" max="100" value="50">
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
 

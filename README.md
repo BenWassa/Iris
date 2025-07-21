@@ -34,7 +34,7 @@ result = infer_emotion({
 ```
 
 ### **Database Schema**
-- **91 unique emotions** across 4 categories: Positive (39), Negative (43), Neutral (4), Other (5)
+- **91 unique emotions** across 4 categories: Positive (39), Negative (43), Neutral (4), Mixed (5)
 - **5 neurochemicals** per emotion with values 0-100
 - **Rich metadata**: primary/secondary synonyms, descriptive text, emotion categories
 - **Biologically-informed mappings**: High cortisol → stress emotions, high oxytocin → bonding emotions

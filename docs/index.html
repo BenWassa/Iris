@@ -62,10 +62,113 @@
                 <div class="emotion-description" id="emotion-description">Adjust the sliders to infer an emotion.</div>
                 <div class="confidence-score" id="confidence-score">Confidence: --</div>
             </div>
+            
+            <!-- 2D Emotion Visualization -->
+            <div class="visualization-container">
+                <h3 class="viz-title">Valence-Arousal Emotion Space</h3>
+                <svg id="emotion-canvas" viewBox="0 0 600 500">
+                    <!-- Grid lines -->
+                    <defs>
+                        <pattern id="grid" width="60" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 60 0 L 0 0 0 50" fill="none" class="grid-line"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                    
+                    <!-- Main axes -->
+                    <line x1="60" y1="450" x2="540" y2="450" class="axis-line"/>
+                    <line x1="60" y1="50" x2="60" y2="450" class="axis-line"/>
+                    
+                    <!-- Valence axis labels -->
+                    <text x="60" y="470" class="axis-label" text-anchor="middle">Unpleasant</text>
+                    <text x="540" y="470" class="axis-label" text-anchor="middle">Pleasant</text>
+                    <text x="300" y="490" class="axis-label" text-anchor="middle">Valence</text>
+                    
+                    <!-- Arousal axis labels -->
+                    <text x="45" y="455" class="axis-label" text-anchor="end">Calm</text>
+                    <text x="45" y="55" class="axis-label" text-anchor="end">Intense</text>
+                    <text x="30" y="250" class="axis-label" text-anchor="middle" transform="rotate(-90, 30, 250)">Arousal</text>
+                    
+                    <!-- Quadrant labels -->
+                    <text x="150" y="120" class="quadrant-label">Stress</text>
+                    <text x="450" y="120" class="quadrant-label">Excitement</text>
+                    <text x="150" y="380" class="quadrant-label">Depression</text>
+                    <text x="450" y="380" class="quadrant-label">Contentment</text>
+                    
+                    <!-- Emotion dot -->
+                    <circle id="emotion-dot" class="emotion-dot" r="12" cx="300" cy="250"/>
+                    
+                    <!-- Emotion label -->
+                    <text id="emotion-label" class="emotion-label" x="300" y="235">Adjust Sliders</text>
+                </svg>
+                
+                <!-- Enhanced emotion controls for testing -->
+                <div class="emotion-controls">
+                    <button class="emotion-btn" onclick="testEmotionDisplay('happiness')">Happiness</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('anger')">Anger</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('sadness')">Sadness</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('fear')">Fear</button>
+                    <button class="emotion-btn" onclick="testEmotionDisplay('disgust')">Disgust</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
+    <!-- Enhanced Emotion Visualization Scripts -->
+    <script type="module">
+        // Import enhanced emotion visualization modules
+        import { emotionCoords, canvasConfig, plotDimensions } from './js/emotionCoords.js';
+        import { updateEmotionDot, coordsToSVG, initializeEmotionDot, updateEmotionVisualization } from './js/updateEmotionDot.js';
+
+        // Visualization settings
+        const canvasWidth = canvasConfig.width;
+        const canvasHeight = canvasConfig.height;
+        const margin = canvasConfig.margin;
+        const plotWidth = plotDimensions.width;
+        const plotHeight = plotDimensions.height;
+
+        // Enhanced emotion visualization function
+        function updateEmotionVisualizationInternal(emotion) {
+            if (!emotionCoords[emotion]) {
+                console.warn(`Unknown emotion for visualization: ${emotion}`);
+                return;
+            }
+
+            const coords = emotionCoords[emotion];
+            const svgCoords = coordsToSVG(coords.valence, coords.arousal);
+            
+            const dot = document.getElementById('emotion-dot');
+            const label = document.getElementById('emotion-label');
+            
+            if (!dot || !label) return;
+
+            // Update dot position with smooth animation
+            dot.setAttribute('cx', svgCoords.x);
+            dot.setAttribute('cy', svgCoords.y);
+            
+            // Update label position and text
+            label.setAttribute('x', svgCoords.x);
+            label.setAttribute('y', svgCoords.y - 20);
+            label.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+            
+            // Enhanced visual feedback with quadrant-based colors
+            updateDotVisualFeedback(dot, coords);
+        }
+
+        // Enhanced visual feedback for emotion transitions
+        function updateDotVisualFeedback(dot, emotionData) {
+            const quadrantColors = {
+                'Excitement': '#00FFE0',     // Cyan for positive high-arousal
+                'Stress': '#FF6B6B',         // Red for negative high-arousal  
+                'Depression': '#6B73FF',     // Blue for negative low-arousal
+                'Contentment': '#4ECDC4'     // Teal for positive low-arousal
+            };
+            
+            const color = quadrantColors[emotionData.quadrant] || '#00FFE0';
+            dot.setAttribute('fill', color);
+            dot.style.filter = `drop-shadow(0 0 10px ${color})`;
+        }
+
         // Slider elements
         const sliders = {
             dopamine: document.getElementById('dopamine'),
@@ -91,7 +194,7 @@
 
         const API_URL = 'http://localhost:5000/infer';
 
-        // Send values to backend and update display
+        // Enhanced emotion display function with improved visualization
         function updateEmotionDisplay() {
             const payload = {
                 dopamine: parseFloat(sliders.dopamine.value),
@@ -101,10 +204,12 @@
                 norepinephrine: parseFloat(sliders.norepinephrine.value)
             };
 
+            // Update slider value displays
             Object.keys(valueDisplays).forEach(key => {
                 valueDisplays[key].textContent = sliders[key].value;
             });
 
+            // API call with enhanced error handling
             fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -112,17 +217,40 @@
             })
             .then(res => res.json())
             .then(data => {
+                // Update text displays
                 emotionNameEl.textContent = data.emotion;
                 confidenceScoreEl.textContent = `Confidence: ${(data.confidence * 100).toFixed(0)}%`;
                 emotionDescriptionEl.textContent = data.description;
+                
+                // Update the enhanced 2D visualization
+                updateEmotionVisualizationInternal(data.emotion);
             })
             .catch(err => {
                 emotionNameEl.textContent = 'Error';
-                emotionDescriptionEl.textContent = 'Unable to reach backend.';
+                emotionDescriptionEl.textContent = 'Unable to reach backend. Please start the API server.';
                 confidenceScoreEl.textContent = '';
-                console.error(err);
+                console.error('API Error:', err);
+                
+                // Reset visualization to center on error
+                initializeEmotionDot();
             });
         }
+
+        // Test function for emotion buttons
+        window.testEmotionDisplay = function(emotion) {
+            updateEmotionVisualizationInternal(emotion);
+            
+            // Update button states
+            document.querySelectorAll('.emotion-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event?.target?.classList.add('active');
+            
+            // Simulate API response for demonstration
+            emotionNameEl.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
+            emotionDescriptionEl.textContent = emotionCoords[emotion]?.description || "Exploring emotional state...";
+            confidenceScoreEl.textContent = `Demo Mode: ${Math.floor(Math.random() * 20 + 80)}%`;
+        };
 
         // Add event listeners to all sliders
         Object.keys(sliders).forEach(chemical => {
@@ -130,8 +258,15 @@
             slider.addEventListener('input', updateEmotionDisplay);
         });
 
-        // Initialize display
+        // Initialize the visualization
+        initializeEmotionDot();
+        
+        // Initialize display with current slider values
         updateEmotionDisplay();
+
+        // Make enhanced functions available globally
+        window.updateEmotionVisualization = updateEmotionVisualizationInternal;
+        window.emotionCoords = emotionCoords;
     </script>
 </body>
 </html>

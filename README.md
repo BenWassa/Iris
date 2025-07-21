@@ -2,7 +2,14 @@
 
 **A poetic, science-informed tool to *see* your neurochemistry.**
 
-Transform your inner neurochemical "cocktail" into a living emotional map through an interactive visualization that maps 5 key neurotransmitters to 91+ unique emotions.
+Transform your inner neurochemical "cocktail" ## 🚧 Roadmap
+
+1️⃣ ~~**Wireframe** basic sliders, dot, and anchors~~ ✅ **Complete**  
+2️⃣ **Connect Backend** — API integration for live emotion inference  
+3️⃣ **Add Visualization** — 2D emotion space canvas with D3.js  
+4️⃣ **Enhance Interactivity** — heatmap trails and emotion anchors  
+5️⃣ **Add Playback** — session scrubber to replay emotional journeys  
+6️⃣ **Write Footnotes** — disclaimers & sources to explain "illustrative" natureliving emotional map through an interactive visualization that maps 5 key neurotransmitters to 91+ unique emotions.
 
 ---
 
@@ -51,15 +58,16 @@ result = infer_emotion({
 
 ### **🔄 Current Status**
 ✅ **Core Engine** — Emotion inference with 91-emotion database  
-✅ **Testing Suite** — Comprehensive pytest coverage (17 tests)  
+✅ **Testing Suite** — Comprehensive pytest coverage (17 tests passing)  
 ✅ **Data Validation** — Neurochemical profile validation scripts  
+✅ **Frontend Prototype** — Interactive HTML demo with live sliders and emotion display  
 ✅ **Documentation** — Code documentation and usage examples
 
 ### **📋 Next Steps**
-1️⃣ **API Layer** — REST endpoints for web frontend integration  
-2️⃣ **Frontend Wireframe** — Interactive sliders and emotion visualization  
-3️⃣ **Real-time Mapping** — Live emotion dot with heatmap trails  
-4️⃣ **Session Playback** — Temporal emotion tracking and replay
+1️⃣ **API Integration** — Connect HTML frontend to Python backend  
+2️⃣ **Enhanced Visualization** — Add emotion space canvas and heatmap trails  
+3️⃣ **Session Playback** — Temporal emotion tracking and replay functionality  
+4️⃣ **Responsive Design** — Mobile-optimized interface and accessibility features
 
 ---
 
@@ -116,11 +124,17 @@ Plutchik-style “emotion anchors” let you snap to common states (joy, anger, 
 - 📊 **91-Emotion Database** with 5-dimensional neurochemical profiles
 - 🧪 **pytest** for testing infrastructure
 
-### **Planned Frontend (MVP)**
-- 📊 **D3.js** for 2-D canvas + heatmap
-- ⏱️ **WebWorkers** for smooth rendering
-- 🎛️ **HTML/CSS/JS** for sliders & UI
-- 🔒 **LocalStorage** for private saves
+### **Frontend Prototype (HTML/CSS/JS)**
+- 🎛️ **Interactive Sliders** for 5 neurochemicals with real-time updates
+- 🎨 **Gradient UI** with glassmorphism design and smooth animations
+- 📱 **Responsive Design** optimized for desktop and mobile devices
+- ⚡ **Client-side Processing** with JavaScript cosine similarity implementation
+
+### **Planned Enhancements**
+- 📊 **D3.js Canvas** for 2-D emotion space visualization
+- 🔥 **Heatmap Trails** showing emotion history over time
+- ⏱️ **WebWorkers** for smooth rendering performance
+- 🔒 **LocalStorage** for private session saves
 
 ---
 
